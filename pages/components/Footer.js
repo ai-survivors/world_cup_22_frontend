@@ -1,9 +1,8 @@
 import React from 'react'
-
 const Footer = () => {
     return (
         <section class='pt-80'>
-        <div class='bg-pink-900'>
+        <div class='bg-pink-800'>
             <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
                 <div class="flex flex-col items-center justify-center">
                     <svg class="toggleColour hover:scale-125 text-yellow-500 no-underline hover:text-white font-bold text-2xl lg:text-4xl h-9 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

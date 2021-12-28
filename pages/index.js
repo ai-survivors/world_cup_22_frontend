@@ -5,10 +5,11 @@ const index = () => {
   return (
     <>
     <Header/>
+
+
+
     <Footer/>
-      
     </>
   )
 }
-
 export default index
