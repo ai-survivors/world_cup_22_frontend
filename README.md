@@ -9,3 +9,5 @@ A project to display the results of the 2022 World Cup matches in Qatar, with th
 <p align="center">
 Copyright (c) 2021-2022 AI SURVIVORS
 </p>
+
+---
