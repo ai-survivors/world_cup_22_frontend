@@ -1,11 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
-
 const Footer = () => {
     return (
         <section class=''>
-        <div class='bg-green-800'>
-            <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 px-4 py-12">
+        <div class='bg-pink-800'>
+            <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12">
                 <div class="flex flex-col items-center justify-center">
                 <Link href="/">
                     <svg class="toggleColour hover:scale-125 text-yellow-500 no-underline hover:text-white font-bold text-2xl lg:text-4xl h-9 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -16,16 +15,16 @@ const Footer = () => {
                     <div class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8 font-bold">
                         <a href="https://github.com/ai-survivors" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">About</a>
                         <a href="https://github.com/ai-survivors" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">Contact us</a>
-                        <Link href="/components/PrivacyPolicy">
+                        <Link href="./PrivacyPolicy">
                         <a href="#" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">Terms of Service</a>
                         </Link>
-                        <Link href="/components/PrivacyPolicy">
+                        <Link href="./PrivacyPolicy">
                         <a href="#" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">Privacy Policy</a>
                         </Link>
                     </div>                                       
                     <div class="flex items-center gap-x-8 mt-6">
                         <a href="https://app.slack.com/client/TNGRRLUMA/C02NARWPXQE">
-                            <button aria-label="facebook" class="hover:scale-110 rounded-full">
+                            <button aria-label="" class="hover:scale-110 rounded-full">
                                 <svg class="fill-current text-black dark:text-white" width="22" height="22"
                                     enable-background="new 0 0 2447.6 2452.5" viewBox="0 0 2447.6 2452.5" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-rule="evenodd" fill-rule="evenodd">

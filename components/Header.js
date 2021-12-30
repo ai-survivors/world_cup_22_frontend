@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import React, { useState, useEffect } from "react";
-
 const Header = () => {
-      
     return (
         <>
     <section>
@@ -12,7 +9,7 @@ const Header = () => {
             <link rel="icon" href="/trophy.png" />
         </Head>
 <div className="leading-normal tracking-normal text-white gradient">
-<nav id="header" className="fixed top-0 z-30 w-full text-gray-300 bg-green-800">
+<nav id="header" className="fixed top-0 z-30 w-full text-gray-300 bg-pink-800">
 <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
 <div className="flex items-center pl-4">
 <Link href="/">
@@ -26,7 +23,7 @@ const Header = () => {
 </Link>
 </div>
 <div className="block pr-4 lg:hidden">
-<button id="nav-toggle" className="flex items-center p-1 text-pink-800 transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
+<button id="nav-toggle" className="flex items-center p-1 text-black transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
 <svg className="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 <title>Menu</title>
 <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
@@ -41,14 +38,16 @@ const Header = () => {
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">Ticket</a>
 </li>
-<Link href="/components/WorldCupHistory">
+<Link href="./WorldCupHistory">
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">History</a>
 </li>
 </Link> 
+<Link href="./AboutUs">
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">About us</a>
 </li>
+</Link>
 </ul>
 <button
 id="navAction"
@@ -74,18 +73,3 @@ World Cup Qatar 2022™
     )
 }
 export default Header
-//https://cdn.dmcl.biz/media/image/191396/o/1605968253002.jpg
-//https://sportshub.cbsistatic.com/i/r/2021/10/13/007edf34-6472-437f-b6ef-68bc342475b2/thumbnail/1200x675/cc6e3ad0f6e2b33e8b747f5cb742f081/untitled-design-2021-10-13t161851-200.jpg
-/*
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<title>World Cup 2022</title>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="author" content="" />
-<link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
-</head>
-*/
