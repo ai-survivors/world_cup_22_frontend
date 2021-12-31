@@ -67,6 +67,9 @@ const Header = () => {
                 id="nav-content"
               >
                 <ul className="items-center justify-end flex-1 list-reset lg:flex">
+                  
+                  <Link href="./Matches">
+
                   <li className="mr-3">
                     <a
                       className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline"
@@ -75,6 +78,8 @@ const Header = () => {
                       Matches
                     </a>
                   </li>
+                  </Link>
+                  
                   <Link href="./TicketForm">
                   <li className="mr-3">
                     <a

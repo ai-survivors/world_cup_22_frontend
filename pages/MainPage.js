@@ -5,11 +5,11 @@ import Footer from '../components/Footer'
 import React, { useState, useEffect } from "react" ;
 const MainPage = () => {
   const [news , setNews] = useState([]);
-  useEffect(() => {
+   useEffect(() => {
       Axios.get(NEWS).then(res=>{
           setNews(res.data.cache.data)
       })
-    },[]);
+    },[]); 
   return (
     <>
     <Header/>
