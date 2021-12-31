@@ -1,5 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import qr from "qr.js";
+import {  useState } from "react";
+
+import QRCode from "qrcode.react";
+
 const features = [
   { name: "Match Teams", description: "Designed by Good Goods, Inc." },
   {
@@ -16,7 +21,8 @@ const features = [
 ];
 
 const TicketSubmit = (props) => {
-  //  console.log(props.handleSubmit)
+    const [value , setNews] = useState([]);
+    value=`"{owner:"Rawnaq",Title:"France-japan"}"`
   return (
     <>
       <Header />
@@ -36,16 +42,20 @@ const TicketSubmit = (props) => {
                 <li>Class: Gold one</li>
               </ul>
             </div>
-			<div className="border-t-2 border-b-2 border-rose-600 bg-white-100 rounded-3xl">
+            <div className="border-t-2 border-b-2 border-rose-600 bg-white-100 rounded-3xl">
               <ul className=" flex justify-evenly ...">
                 <li>Name: Omar</li>
                 <li>Date:4/4/2022</li>
                 <li>Seat:19-Zone:A</li>
               </ul>
             </div>
-		<div className= "float-right pr-10 pt-10">
-				<img  width="100" height="100"  src="https://www.pinclipart.com/picdir/big/2-26320_free-football-clipart-free-clipart-images-graphics-football.png"/>
-				</div>
+            <div className="float-right pr-10 pt-10">
+              <img
+                width="100"
+                height="100"
+                src="https://www.pinclipart.com/picdir/big/2-26320_free-football-clipart-free-clipart-images-graphics-football.png"
+              />
+            </div>
             {/* <dl className= "bg-white-100 mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
 			  {features.map((feature) => (
 				<div key={feature.name} className="border-t border-gray-200 pt-4">
@@ -57,6 +67,9 @@ const TicketSubmit = (props) => {
 			
 			  ))}
 			</dl> */}
+            <div>
+              <QRCode id="abc" value={value} />
+            </div>
             <button class="mt-24 ml-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center bt-10 mt-7">
               <svg
                 class="fill-current w-4 h-4 mr-2"
