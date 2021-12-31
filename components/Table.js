@@ -1,0 +1,55 @@
+import React from 'react'
+import TRow from './TRow'
+
+export default function Table(props) {
+    return (
+        <table class="table-auto w-full">
+        <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+            <tr>
+                
+                
+            <th class=" whitespace-nowrap">
+                    <div class="font-semibold text-left">Votes</div>
+                </th>
+                
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left">Matches</div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class="p-2 whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                <th class=" whitespace-nowrap">
+                    <div class="font-semibold text-left"></div>
+                </th>
+                
+                <th class=" whitespace-nowrap">
+                    <div class="font-semibold text-left">Votes</div>
+                </th>
+                
+            </tr>
+        </thead>
+        <tbody class="text-sm divide-y divide-gray-100">
+            {
+                props.item.games.map(game => {
+                    return  <TRow game={game}></TRow>
+                })
+            }
+        </tbody>
+    </table>
+    )
+}
