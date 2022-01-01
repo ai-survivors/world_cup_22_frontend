@@ -1,6 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 const features = [
+
+  
+
   { name: "Match Teams", description: "Designed by Good Goods, Inc." },
   {
     name: "Match Date",
@@ -16,6 +20,7 @@ const features = [
 ];
 
 const TicketSubmit = (props) => {
+
   //  console.log(props.handleSubmit)
   return (
     <>
