@@ -1,28 +1,29 @@
 import Link from 'next/link';
 import React from 'react'
 import data from './ticketData.json'
-import TicketSubmit from './TicketSubmit';
+import useTickets from "../hooks/useTickets";
 
+//import { useAuth } from '../contexts/auth';
 
-
+import { useAuth } from '../contexts/auth';
 const  TicketForm= ()=> {
 
- 
+  const {resources,loading, createTicket , deleteTicket, updateTicket,} = useTickets();
+   const {user ,login , logout} = useAuth();
+  
+  console.log("tickets",resources)
+
  const handleSubmit = async(e)=>{
     e.preventDefault();
     console.log(e.target.name.value)
-   const setState={
-     name:e.target.name.value,
-     email:e.target.email.value,
-     phoneNumber:e.target.phoneNumber.value,
-     country:e.target.country.value,
-     match:e.target.match.value,
+   const obj={
+    owner : user.id,
+    description: "" ,
+    price: 65,
+    match: 5
 
-
-
-    
-    }
-    console.log(formSubmit)
+}
+     createTicket(obj)
 }
 
 
@@ -46,7 +47,7 @@ const  TicketForm= ()=> {
 
     <h2 class="text-3xl font-bold mb-10 text-gray-600 ">Book your ticket:</h2>
 
-    <form class="space-y-5" onSubmit={handleSubmit}>
+    <form class="space-y-5" onSubmit={handleSubmit} method='post'>
 
       <div>
         <label class="block mb-1 font-bold text-gray-500">Name:</label>
@@ -357,17 +358,17 @@ const  TicketForm= ()=> {
       </div> */}
 
 
-<Link href="./TicketSubmit" >    
+{/* <Link href="./TicketSubmit" >    
+ */}
 
-
-      <button class="block w-full bg-pink-800 hover:bg-yellow-300 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "  >
+      <button class="block w-full bg-pink-800 hover:bg-yellow-300 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large " type='submit'  >
         
    
         Submit
       </button>
 
 
-      </Link>
+    {/*   </Link> */}
     </form>
 
   </div>

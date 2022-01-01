@@ -3,59 +3,84 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Table from '../components/Table'
 
+import useResource from '../hooks/useResource'
+
 export default function Matches() {
+    
+    const {resources,loading,createResource,deleteResource,updateResource,} = useResource()
+
+
+    console.log(resources)
 
     let data = [
         {
             day: 'THURSDAY, NOVEMBER 24, 2022',
-            games:[
+            games: [
                 {
-                    fristTeam : "USA",
-                    time: " 16 : 00 ",
-                    secondTeam: "Grmain"
-    
-                },{
-                    fristTeam : "USA",
-                    time: " 16 : 00 ",
-                    secondTeam: "Grmain"
-    
-                },{
-                    fristTeam : "USA",
-                    time: " 21 : 00 ",
-                    secondTeam: "Grmain"
-    
+                    title : "",
+                    stadium:"",
+                    number_of_tickets: 20,
+                    team1: "USA",
+                    team2: "Grmain",
+                    votes_team1: 2, 
+                    votes_team2: 3,
+                    created_date:"",
+                    description:"",
+                    time: " 16 : 00 "
+
+                }, {
+                    title : "",
+                    stadium:"",
+                    number_of_tickets: 20,
+                    team1: "USA",
+                    team2: "Grmain",
+                    votes_team1: 2, 
+                    votes_team2: 3,
+                    created_date:"",
+                    description:"",
+                    time: " 20 : 00 "
+
+                }, {
+                    title : "",
+                    stadium:"",
+                    number_of_tickets: 20,
+                    team1: "USA",
+                    team2: "Grmain",
+                    votes_team1: 2, 
+                    votes_team2: 3,
+                    created_date:"",
+                    description:"",
+                    time: " 21 : 00 "
+
                 }
             ]
         },
-       
+
         {
             day: "'SUNDAY, NOVEMBER 27, 2022'",
-            games:[
+            games: [
                 {
-                    fristTeam : "USA",
-                    time: " 16 : 00 ",
-                    secondTeam: "Grmain"
-    
-                },{
-                    fristTeam : "USA",
-                    time: " 18 : 00 ",
-                    secondTeam: "Grmain"
-    
-                },{
-                    fristTeam : "USA",
-                    time: " 20 : 00 ",
-                    secondTeam: "Grmain"
-    
+                    title : "",
+                    stadium:"",
+                    number_of_tickets: 20,
+                    team1: "USA",
+                    team2: "Grmain",
+                    votes_team1: 2, 
+                    votes_team2: 3,
+                    created_date:"",
+                    description:"",
+                    time: " 20 : 00 "
+
                 }
             ]
         }
-         
-        
-        ]
+
+
+    ]
     return (
 
         <>
-        <Header></Header>
+            <Header></Header>
             <section>
 
                 <section class="antialiased bg-white text-gray-600 h-screen px-4 ">
