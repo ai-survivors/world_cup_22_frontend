@@ -1,16 +1,12 @@
 import axios from 'axios';
 import useSWR from 'swr';
-
-
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/matches/';
+export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/tickets/';
 import { useAuth } from '../contexts/auth'
 
-export default function useResource() {
+export default function useTickets() {
+
 
     const {tokens , logout } = useAuth()
-
-
-
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
     async function fetchResource(url) {
@@ -29,7 +25,7 @@ export default function useResource() {
         }
     }
 
-    async function createResource(info) {
+    async function createTicket(info) {
 
         try {
             await axios.post(apiUrl, info, config());
@@ -39,7 +35,7 @@ export default function useResource() {
         }
     }
 
-    async function deleteResource(id) {
+    async function deleteTicket(id) {
 
         try {
             const url = apiUrl + id;
@@ -50,7 +46,7 @@ export default function useResource() {
         }
     }
 
-    async function updateResource(resource) {
+    async function updateTicket(resource) {
      try{
 
 
@@ -83,8 +79,8 @@ export default function useResource() {
         resources: data,
         error,
         loading: tokens && !error && !data,
-        createResource,
-        deleteResource,
-        updateResource,
+        createTicket,
+        deleteTicket,
+        updateTicket,
     }
 }

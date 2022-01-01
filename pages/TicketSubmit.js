@@ -1,11 +1,17 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 import qr from "qr.js";
 import {  useState } from "react";
 
 import QRCode from "qrcode.react";
 
+
+
 const features = [
+
+  
+
   { name: "Match Teams", description: "Designed by Good Goods, Inc." },
   {
     name: "Match Date",
@@ -21,8 +27,12 @@ const features = [
 ];
 
 const TicketSubmit = (props) => {
+
     const [value , setNews] = useState([]);
     value=`"{owner:"Rawnaq",Title:"France-japan"}"`
+
+
+  //  console.log(props.handleSubmit)
   return (
     <>
       <Header />
