@@ -13,7 +13,7 @@ export default function TRow(props) {
 
 
      function persent(){
-        let totalpersent = 100 / (firstTeamVoting+secondTeamVoting)
+        let totalpersent = 100 / (firstTeamVoting + secondTeamVoting)
         
     
         let first = firstTeamVoting * totalpersent
@@ -59,7 +59,7 @@ export default function TRow(props) {
 
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{props.game.fristTeam} 🇺🇸</div>
+                <div class="text-lg text-center">{props.game.team1} 🇺🇸</div>
 
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
@@ -70,7 +70,7 @@ export default function TRow(props) {
             </td>
 
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{props.game.secondTeam}🇩🇪</div>
+                <div class="text-lg text-center">{props.game.team2}🇩🇪</div>
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center"> </div>

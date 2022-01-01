@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from 'react';
 import jwt from 'jsonwebtoken';
 import axios from 'axios'
-const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-const tokenUrl = baseUrl + '/api/token/';
+const baseUrl = process.env.NEXT_PUBLIC_RESOURCE_URL;
+const tokenUrl = baseUrl + 'api/token/';
 
 const AuthContext = createContext();
 
@@ -13,7 +13,7 @@ export function useAuth() {
 }
 
 export function AuthProvider(props) {
-
+     
     const [state, setState] = useState({
         tokens: null,
         user: null,
@@ -24,12 +24,14 @@ export function AuthProvider(props) {
     async function login(username, password) {
 
         const response = await axios.post(tokenUrl, { username, password });
+        //console.log(response.data)
 
         const decodedAccess = jwt.decode(response.data.access);
+        console.log(decodedAccess)
 
         const newState = {
             tokens: response.data,
-            user: {
+            user: { 
                 username: decodedAccess.username,
                 email: decodedAccess.email,
                 id: decodedAccess.user_id
