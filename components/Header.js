@@ -54,10 +54,12 @@ const Header = () => {
 </li>
 </Link>
 </ul>
+<Link href="./Login">
 <button
 id="navAction"
 className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 transition duration-300 ease-in-out transform bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
 >Login</button>
+</Link>
 </div>
 </div>
 <hr className="py-0 my-0 border-b border-gray-100 opacity-25" />

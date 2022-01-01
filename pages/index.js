@@ -9,13 +9,11 @@ const index = () => {
     login('admin','1996')
   }
    
-  if (!user) return <LoginForm handelLoginForm={handelLoginForm}></LoginForm>
+//  if (!user) return <LoginForm handelLoginForm={handelLoginForm}></LoginForm>
 
   return (
-    <> 
-      
+    <>       
    <MainPage/>
-    
     </>
   )
 }

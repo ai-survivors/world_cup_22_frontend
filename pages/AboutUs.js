@@ -34,12 +34,17 @@ const AboutUs = () => {
 </div>
 <div className="z-20 flex-grow hidden w-full p-4 mt-2 text-gray-300 bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0" id="nav-content">
 <ul className="items-center justify-end flex-1 list-reset lg:flex">
+<Link href="./Matches">
+
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">Matches</a>
 </li>
+</Link> 
+<Link href="./TicketForm">
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">Ticket</a>
 </li>
+</Link>
 <Link href="./WorldCupHistory">
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-white hover:text-underline" href="#">History</a>
