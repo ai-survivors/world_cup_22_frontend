@@ -11,3 +11,5 @@ Copyright (c) 2021-2022 [AI SURVIVORS](https://github.com/ai-survivors)
 </p>
 
 ---
+>http://worldcup.sfg.io/matches
+>https://raw.githubusercontent.com/broeneatsdinner/fifa-worldcup-JSON/master/data/world-cup-2018.json
