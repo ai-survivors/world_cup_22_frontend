@@ -4,7 +4,7 @@ export default function LoginForm({handelLoginForm}) {
     
 
     return (
-        <form onSubmit={e => handelLoginForm(e )}>
+        <form onSubmit={e => handelLoginForm(e)}>
         <h3>Sign In</h3>
 
         <div className="form-group">
