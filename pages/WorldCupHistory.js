@@ -192,6 +192,7 @@ src={flags[item.home_team]}/>
                 );})}
 </section>
 </section>
+<Footer/>
 </>
   )
 }

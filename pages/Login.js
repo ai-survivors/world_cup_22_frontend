@@ -96,8 +96,8 @@ const Login = () => {
                                 <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="" placeholder="Enter your password"/>
                             </div>
                             <div class="mt-10">
-                                <button class="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide
-                                font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                                <button class="bg-pink-800 text-gray-100 p-4 w-full rounded-full tracking-wide
+                                font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-pink-900
                                 shadow-lg">
                                     Log In
                                 </button>
