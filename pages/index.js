@@ -1,21 +1,16 @@
 import React from 'react'
 import MainPage from './MainPage';
 import { useAuth } from '../contexts/auth'
-import LoginForm from '../components/LoginForm';
+import Login from './Login';
+
 const index = () => {
-  const {user , login , logout} = useAuth()
-  function handelLoginForm (e){
-    e.preventDefault()
-    login('admin','1996')
-  }
+  
    
-  if (!user) return <LoginForm handelLoginForm={handelLoginForm}></LoginForm>
+ //if (!user) return <Login handelLoginForm={handelLoginForm}></Login>
 
   return (
-    <> 
-      
+    <>       
    <MainPage/>
-    
     </>
   )
 }
