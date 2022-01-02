@@ -1,13 +1,15 @@
 import axios from 'axios';
 import useSWR from 'swr';
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/tickets/';
+
+
+export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/teams/';
 import { useAuth } from '../contexts/auth'
 
-export default function useTickets() {
-
+export default function useTeams() {
 
     const {tokens , logout } = useAuth()
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+
 
     async function fetchResource(url) {
 
@@ -25,8 +27,7 @@ export default function useTickets() {
         }
     }
 
-    async function createTicket(info) {
-
+    async function createTeam(info) {
         try {
             await axios.post(apiUrl, info, config());
             mutate(); // mutate causes complete collection to be refetched
@@ -35,7 +36,7 @@ export default function useTickets() {
         }
     }
 
-    async function deleteTicket(id) {
+    async function deleteTeam(id) {
 
         try {
             const url = apiUrl + id;
@@ -46,7 +47,7 @@ export default function useTickets() {
         }
     }
 
-    async function updateTicket(resource) {
+    async function updateTeam(resource) {
      try{
 
 
@@ -76,11 +77,11 @@ export default function useTickets() {
     }
 
     return {
-        ticketResources: data,
+        teamResources: data,
         error,
-        ticketLoading: tokens && !error && !data,
-        createTicket,
-        deleteTicket,
-        updateTicket,
+        teamLoading: tokens && !error && !data,
+        createTeam,
+        deleteTeam,
+        updateTeam,
     }
 }
