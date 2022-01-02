@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import qr from "qr.js";
 import {  useState } from "react";
 
 import QRCode from "qrcode.react";

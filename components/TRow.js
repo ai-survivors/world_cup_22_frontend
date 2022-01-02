@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { useAuth } from '../contexts/auth'
 
 export default function TRow(props) {
-
+    const {user,login,logout} =useAuth();
     const[firstTeamVoting,setFirstTeamVoting]=useState(0)
     const[secondTeamVoting,setSecondTeamVoting]=useState(0) 
     const[totalVoteFirstTeam , setTotalvoteFirstTeam]= useState(0)
@@ -53,9 +54,12 @@ export default function TRow(props) {
                 <div class="text-center"> </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-                <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2 px-4 rounded-full" onClick={vote} >
-                    vote
-                </button>
+            {user &&  
+                 <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2 px-4 rounded-full" onClick={vote} >
+                 vote
+             </button>
+                }
+               
 
             </td>
             <td class="p-2 whitespace-nowrap">
@@ -76,9 +80,12 @@ export default function TRow(props) {
                 <div class="text-center"> </div>
             </td>
             <td class="p-6 whitespace-nowrap">
+                {user && 
                 <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2  px-4 rounded-full" onClick={vote2} >
-                    vote
-                </button>
+                vote
+               </button>
+                }
+                
             </td>
             <td class="whitespace-nowrap">
                 <div class="text-center"> 
