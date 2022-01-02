@@ -24,3 +24,5 @@
 <!--
 https://raw.githubusercontent.com/broeneatsdinner/fifa-worldcup-JSON/master/data/world-cup-2018.json
 -->
+---
+![Logo](logo.png)
