@@ -3,11 +3,12 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <section class=''>
-        <div class='bg-black opacity-75'>
+        <div class='bg-black opacity-90'>
             <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12">
                 <div class="flex flex-col items-center justify-center">
                 <Link href="/">
-                <img src='https://seeklogo.com/images/F/fifa-world-cup-2022-logo-0E5F05028D-seeklogo.com.png' width='70' height='200'/>
+<img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
+          
                     </Link>
                     <div class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8 font-bold">
                         <a href="https://github.com/ai-survivors" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">About</a>

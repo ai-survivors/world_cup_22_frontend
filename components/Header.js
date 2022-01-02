@@ -1,6 +1,9 @@
+import { useAuth } from "../contexts/auth";
 import Head from "next/head";
 import Link from "next/link";
 const Header = () => {
+  const{user,login,logout}=useAuth();
+
   return (
     <>
             <Head>
@@ -13,9 +16,7 @@ const Header = () => {
 <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
 <div className="flex items-center pl-4">
 <Link href="/">
-<a className="text-2xl font-bold text-white no-underline toggleColour hover:text-gray-500 lg:text-4xl" href="#">
-<img src='https://seeklogo.com/images/F/fifa-world-cup-2022-logo-0E5F05028D-seeklogo.com.png' width='70' height='200'/>
-</a>
+<img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
 </Link>
 </div>
 <div className="block pr-4 lg:hidden">
@@ -49,12 +50,18 @@ const Header = () => {
 </li>
 </Link>
 </ul>
-<Link href="./Login">
-<button
-id="navAction"
-className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
->Login</button>
-</Link>
+{ user ? <button 
+                    id="navAction"
+                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                  >{user.username}</button>
+                  : <Link href="./Login">
+                  
+                  <button 
+                    id="navAction"
+                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                  >Login</button>
+                </Link>
+                } 
 </div>
 </div>
 <hr className="py-0 my-0 border-b border-gray-100 opacity-25" />

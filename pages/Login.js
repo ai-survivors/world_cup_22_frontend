@@ -6,23 +6,17 @@ import { useRouter } from 'next/router';
 const Login = () => {
     const {user , login , logout} = useAuth()
     const router = useRouter()
-
     const [credintials ,setCredintials] = useState({username:'',password:''})
-
-    
     const userNameChangeHandler =(e)=>{
         setCredintials({username:e.target.value})
     }
-
     const passwordChangeHandler =(e)=>{
         setCredintials({...credintials , password:e.target.value})
     }
     function handelLoginForm (e){
     e.preventDefault()
     login(credintials.username,credintials.password)
-
   }
-
   function redirect(){
       setTimeout(()=>{
         router.back()
@@ -31,25 +25,16 @@ const Login = () => {
       //router.push('/')
       //router.go(-1)
   }
-
-
-
     return (
         <>
-      <section>
+<section>
 <div className="leading-normal tracking-normal text-white gradient">
 <nav id="header" className="fixed top-0 z-30 w-full py-1 text-white bg-black opacity-75">
 <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
 <div className="flex items-center pl-4">
 <Link href="/">
-<a className="text-2xl font-bold text-white no-underline toggleColour hover:text-gray-500 lg:text-4xl" href="#">
-<svg className="inline h-9" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-<rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
-<path className="plane-take-off" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-<title>Main Page</title>
-</svg>
-{' '}World Cup
-</a>
+<img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
+
 </Link>
 </div>
 <div className="block pr-4 lg:hidden">
@@ -76,21 +61,18 @@ const Login = () => {
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">History</a>
 </li>
-</Link> 
+</Link>
 <Link href="./AboutUs">
 <li className="mr-3">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">About us</a>
 </li>
 </Link>
 </ul>
-
 </div>
 </div>
 </nav>
 </div>
 </section>
-
-
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
@@ -116,8 +98,8 @@ const Login = () => {
                             <div class="mt-12">
                                 <form method='post'onSubmit={handelLoginForm}>
                                     <div>
-                                        <div class="text-sm font-bold text-gray-700 tracking-wide">Usernaem</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="@username" name="username" onChange={userNameChangeHandler} />
+                                        <div class="text-sm font-bold text-gray-700 tracking-wide">User Name</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="username" name="username" onChange={userNameChangeHandler} />
                                     </div>
                                     <div class="mt-8">
                                         <div class="flex justify-between items-center">
@@ -184,11 +166,7 @@ const Login = () => {
                 </div>
             </body>
             <Footer />
-
-
-
         </>
     )
 }
-
 export default Login
