@@ -50,11 +50,17 @@ const Header = () => {
 </li>
 </Link>
 </ul>
-{ user ? <button 
+{ user ? <> <button 
                     id="navAction"
                     className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
                   >{user.username}</button>
-                  : <Link href="./Login">
+                  <button onClick={logout}
+                  id="navAction"
+                  className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                >logout</button>
+                  </>
+                  : 
+                  <Link href="./Login">
                   
                   <button 
                     id="navAction"
