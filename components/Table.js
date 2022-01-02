@@ -45,9 +45,11 @@ export default function Table(props) {
         </thead>
         <tbody class="text-sm divide-y divide-gray-100">
             {
-                props.item.games.map(game => {
-                    return  <TRow game={game}></TRow>
-                })
+              
+                      <TRow match={props.match} 
+                      Matches={props.Matches} 
+                      updateResource={props.updateResource}></TRow>
+    
             }
         </tbody>
     </table>

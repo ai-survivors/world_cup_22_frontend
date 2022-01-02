@@ -50,10 +50,13 @@ export default function useResource() {
         }
     }
 
-    async function updateResource(resource) {
-     try{
-
-
+    async function updateResource(match,voteupdate) {
+       
+        try{
+           const url = apiUrl + match.id+'/';
+           await axios.patch(url,voteupdate,config());
+           mutate();
+           
      } catch (error){
          handleError(error)
 

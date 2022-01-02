@@ -1,42 +1,27 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/auth'
 
+
 export default function TRow(props) {
     const {user,login,logout} =useAuth();
-    const[firstTeamVoting,setFirstTeamVoting]=useState(0)
-    const[secondTeamVoting,setSecondTeamVoting]=useState(0) 
-    const[totalVoteFirstTeam , setTotalvoteFirstTeam]= useState(0)
-    const[totalVoteSecondTeam , setTotalvoteSecondTeam]= useState(0)
-    
-
-
-
-
-
-     function persent(){
-        let totalpersent = 100 / (firstTeamVoting + secondTeamVoting)
-        
-    
-        let first = firstTeamVoting * totalpersent
-         setTotalvoteFirstTeam(Math.floor(first))
-        
-        let second = secondTeamVoting * totalpersent
-         setTotalvoteSecondTeam(Math.floor(second))
-        
-
-    }
-    
+    const[firstTeamVoting,setFirstTeamVoting]=useState(props.match.votes_team1)
+    const[secondTeamVoting,setSecondTeamVoting]=useState(props.match.votes_team2) 
     
 
     const vote =()=>{
         setFirstTeamVoting(prev => prev + 1)
-        persent()
-           
+        const vote = firstTeamVoting + 1
+        const voteupdate = { votes_team1: vote };
+        props.updateResource(props.match,voteupdate)
+       
     }
 
      function vote2 (){
        setSecondTeamVoting(prev => prev + 1)
-       persent()
+        const vote = secondTeamVoting + 1
+        const voteupdate = { votes_team2: vote };
+        props.updateResource(props.match,voteupdate)
+      
     }
 
 
@@ -46,7 +31,7 @@ export default function TRow(props) {
         <tr>
             <td class="whitespace-nowrap">
                 <div class="text-center"> 
-                {totalVoteFirstTeam} % 
+                {firstTeamVoting} 
                 </div>
 
             </td>
@@ -63,18 +48,18 @@ export default function TRow(props) {
 
             </td>
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{props.game.team1} 🇺🇸</div>
+                <div class="text-lg text-center">{props.match.team1.country} 🇺🇸</div>
 
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center"></div>
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
-                <div class="text-center"> {props.game.time}</div>
+                <div class="text-center"> {props.match.time}</div>
             </td>
 
             <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">{props.game.team2}🇩🇪</div>
+                <div class="text-lg text-center">{props.match.team2.country}🇩🇪</div>
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center"> </div>
@@ -89,7 +74,7 @@ export default function TRow(props) {
             </td>
             <td class="whitespace-nowrap">
                 <div class="text-center"> 
-                {totalVoteSecondTeam} %
+                {secondTeamVoting} 
                 </div>
 
             </td>
