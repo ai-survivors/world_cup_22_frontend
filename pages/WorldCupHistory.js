@@ -1,5 +1,5 @@
 import Axios from "axios";
-const NEWS_HISTORY = 'https://raw.githubusercontent.com/broeneatsdinner/fifa-worldcup-JSON/master/data/world-cup-2018.json';
+const NEWS_HISTORY = process.env.NEXT_PUBLIC_WORLD_HISTORY_API ;
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import React, { useState, useEffect } from "react" ;
@@ -125,6 +125,7 @@ src={Croatia}/>
                     </li>
                 </ul>
             </div>
+            <p class="text-center mdi mdi-plus mdi-18px mx-1 text-gray-500 text-xs">2018-07-15</p>
         </div>
     </div>
 </div>

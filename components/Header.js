@@ -3,11 +3,11 @@ import Link from "next/link";
 const Header = () => {
   return (
     <>
-      <section>
-        <Head>
+            <Head>
             <title>World Cup 2022</title>
             <link rel="icon" href="./trophy.png" />
         </Head>
+      <section>
 <div className="leading-normal tracking-normal text-white gradient">
 <nav id="header" className="fixed top-0 z-30 w-full text-white bg-black opacity-75">
 <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
@@ -66,6 +66,11 @@ className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full 
 </nav>
 </div>
 </section>
+
+
+
+
+
 <section>
 <div className="h-screen w-full m-0 p-0 bg-cover bg-[url('https://sportshub.cbsistatic.com/i/r/2021/10/13/007edf34-6472-437f-b6ef-68bc342475b2/thumbnail/1200x675/cc6e3ad0f6e2b33e8b747f5cb742f081/untitled-design-2021-10-13t161851-200.jpg')]">
 <div className="container text-center break-normal md:pt-32">
