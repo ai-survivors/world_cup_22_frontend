@@ -62,12 +62,7 @@ function SignUp() {
 </Link>
 <Link href="./WorldCupHistory">
 <li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">History</a>
-</li>
-</Link>
-<Link href="./AboutUs">
-<li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">About us</a>
+<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Last World Cup</a>
 </li>
 </Link>
 </ul>

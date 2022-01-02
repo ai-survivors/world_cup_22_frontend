@@ -30,32 +30,37 @@ const Header = () => {
 <div className="z-20 flex-grow hidden w-full p-4 mt-2 text-white bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0" id="nav-content">
 <ul className="items-center justify-end flex-1 list-reset lg:flex">
 <Link href="./Matches">
-  <li className="mr-3">
+  <li className="">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Matches</a>
 </li>
 </Link>
 <Link href="./TicketForm">
-<li className="mr-3">
+<li className="">
 <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Ticket</a>
 </li>
 </Link>
 <Link href="./WorldCupHistory">
-<li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">History</a>
+<li className="">
+<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Last World Cup</a>
 </li>
 </Link> 
-<Link href="./AboutUs">
-<li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">About us</a>
-</li>
-</Link>
 </ul>
-{ user ? <button 
+{ user ?
+<>
+<div>
+<Link href="./Profile">
+<a className="inline-block px-4 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Profile</a>
+</Link>
+</div>
+  <div>
+<p
                     id="navAction"
-                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
-                  >{user.username}</button>
-                  : <Link href="./Login">
-                  
+                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                  >
+                   {user.username}
+                    </p>
+                    </div></>    :
+                   <Link href="./Login">
                   <button 
                     id="navAction"
                     className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
@@ -74,9 +79,9 @@ const Header = () => {
 
 
 <section>
-<div className="h-screen w-full m-0 p-0 bg-cover bg-[url('https://sportshub.cbsistatic.com/i/r/2021/10/13/007edf34-6472-437f-b6ef-68bc342475b2/thumbnail/1200x675/cc6e3ad0f6e2b33e8b747f5cb742f081/untitled-design-2021-10-13t161851-200.jpg')]">
+<div className="h-screen bg-center w-full m-0 p-0 bg-cover bg-[url('https://www.arabianbusiness.com/cloud/2021/09/14/LY4IwBhW-al-wakrah-stadium-3.jpg')]">
 <div className="container text-center break-normal md:pt-32">
-<p className="float-left pl-10 font-bold text-white pt-80 md:text-6xl">
+<p className="float-left pl-10 mt-10 font-bold text-white pt-96 md:text-6xl">
 World Cup Qatar 2022™
 </p>
 <p className="pt-3 text-xl text-white md:text-2xl"></p>
@@ -87,4 +92,11 @@ World Cup Qatar 2022™
     )
 }
 export default Header
+
+
+
+
+
+
+
 
