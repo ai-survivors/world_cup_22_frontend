@@ -3,15 +3,12 @@ import Link from 'next/link'
 const Footer = () => {
     return (
         <section class=''>
-        <div class='bg-pink-800'>
+        <div class='bg-black opacity-90'>
             <div class="mx-auto container xl:px-20 lg:px-12 sm:px-6 px-4 py-12">
                 <div class="flex flex-col items-center justify-center">
                 <Link href="/">
-                    <svg class="toggleColour hover:scale-125 text-gray-500 no-underline hover:text-white font-bold text-2xl lg:text-4xl h-9 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
-                        <path class="plane-take-off" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        <title>Main Page</title>
-                    </svg>
+<img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
+          
                     </Link>
                     <div class="flex flex-wrap sm:gap-10 gap-8 items-center justify-center mt-8 font-bold">
                         <a href="https://github.com/ai-survivors" class="hover:scale-110 focus:underline focus:outline-none text-base cursor-pointer leading-4 text-gray-500 dark:text-gray-400 dark:hover:text-white">About</a>

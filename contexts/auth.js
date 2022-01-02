@@ -20,7 +20,7 @@ export function AuthProvider(props) {
         login,
         logout,
     });
-
+console.log('TOKEN ',state.tokens);
     async function login(username, password) {
 
         const response = await axios.post(tokenUrl, { username, password });
