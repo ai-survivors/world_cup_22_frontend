@@ -2,18 +2,16 @@ import axios from 'axios';
 import useSWR from 'swr';
 
 
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/matches/';
+export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/teams/';
 import { useAuth } from '../contexts/auth'
 
-export default function useMatch() {
+export default function useTeams() {
 
     const {tokens , logout } = useAuth()
+    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
 
 
-
-    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchMatches);
-
-    async function fetchMatches(url) {
+    async function fetchResource(url) {
 
         if (!tokens) {
             return;
@@ -29,8 +27,7 @@ export default function useMatch() {
         }
     }
 
-    async function createMatch(info) {
-
+    async function createTeam(info) {
         try {
             await axios.post(apiUrl, info, config());
             mutate(); // mutate causes complete collection to be refetched
@@ -39,7 +36,7 @@ export default function useMatch() {
         }
     }
 
-    async function deleteMatch(id) {
+    async function deleteTeam(id) {
 
         try {
             const url = apiUrl + id;
@@ -50,19 +47,14 @@ export default function useMatch() {
         }
     }
 
-    async function updateMatch(match ,voteupdate) {
-        /* console.log(match.id)
-        console.log(voteupdate)
-
+    async function updateTeam(resource) {
      try{
-        const url = apiUrl + match.id +'/';
-        console.log(url)
-        await axios.patch(url,voteupdate,config())
+
 
      } catch (error){
          handleError(error)
 
-     } */
+     }
     }
 
 
@@ -85,11 +77,11 @@ export default function useMatch() {
     }
 
     return {
-        matchesResource: data,
+        teamResources: data,
         error,
-        loading: tokens && !error && !data,
-        createMatch,
-        deleteMatch,
-        updateMatch,
+        teamLoading: tokens && !error && !data,
+        createTeam,
+        deleteTeam,
+        updateTeam,
     }
 }
