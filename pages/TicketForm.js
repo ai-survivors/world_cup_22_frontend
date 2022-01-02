@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react'
 import data from './ticketData.json'
 import useTickets from "../hooks/useTickets";
+import Header from '../components/Header'
 
 //import { useAuth } from '../contexts/auth';
 
@@ -40,7 +41,7 @@ const  TicketForm= ()=> {
 
 
 <>
-
+<Header/>
 <div class="min-h-screen flex items-center justify-center bg-grey-500">
 
 
