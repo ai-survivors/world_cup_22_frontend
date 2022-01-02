@@ -4,6 +4,8 @@ import Link from "next/link";
 const Header = () => {
   const{user,login,logout}=useAuth();
 
+  
+
   return (
     <>
             <Head>

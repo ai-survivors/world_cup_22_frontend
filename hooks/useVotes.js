@@ -2,16 +2,14 @@ import axios from 'axios';
 import useSWR from 'swr';
 
 
-export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/matches/';
+export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/votes/';
 import { useAuth } from '../contexts/auth'
 
-export default function useResource() {
+export default function useVotes() {
 
     const {tokens , logout } = useAuth()
-
-
-
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
+
 
     async function fetchResource(url) {
 
@@ -29,7 +27,7 @@ export default function useResource() {
         }
     }
 
-    async function createResource(info) {
+    async function createVote(info) {
 
         try {
             await axios.post(apiUrl, info, config());
@@ -39,7 +37,7 @@ export default function useResource() {
         }
     }
 
-    async function deleteResource(id) {
+    async function deletevote(id) {
 
         try {
             const url = apiUrl + id;
@@ -50,7 +48,7 @@ export default function useResource() {
         }
     }
 
-    async function updateResource(resource) {
+    async function updateVote(resource) {
      try{
 
 
@@ -80,11 +78,11 @@ export default function useResource() {
     }
 
     return {
-        resources: data,
+        VoteResources: data,
         error,
-        loading: tokens && !error && !data,
-        createResource,
-        deleteResource,
-        updateResource,
+        voteLoading: tokens && !error && !data,
+        createVote,
+        deletevote,
+        updateVote,
     }
 }
