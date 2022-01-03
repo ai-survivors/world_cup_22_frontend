@@ -1,14 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import Header from "../components/Header";
+import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useAuth } from "../contexts/auth";
 import useTickets from "../hooks/useTickets";
 import { useEffect,useState } from "react";
 import QRCode from "qrcode.react";
 import useVotes from "../hooks/useVotes";
-import html2canvas from 'html2canvas'
-import {jsPDF} from "jspdf";
+
 const Profile = () => {
   const { user, login, logout,tokens } = useAuth();
   const {ticketResources,  ticketLoading, createTicket } = useTickets();
@@ -37,7 +36,7 @@ return (
           href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
         />
       </head>
-<Header/>
+<Nav/>
       <body class="pt-28 bg-[url('https://i.ytimg.com/vi/MG9_skWiNfs/maxresdefault.jpg')] font-awesome antialiased text-gray-900 leading-normal tracking-wider bg-cover">
         <div class="mx-10 max-w-full flex items-center h-auto flex-wrap  lg:my-0">
           <div
