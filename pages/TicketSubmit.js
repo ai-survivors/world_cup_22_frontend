@@ -3,41 +3,30 @@ import Footer from "../components/Footer";
 import { useAuth } from '../contexts/auth'
 import useTickets from "../hooks/useTickets";
 import QRCode from "qrcode.react";
-
+import { useState ,useEffect } from "react";
 
 
 const TicketSubmit = () => {
+
+
+
 
 const {user , login , logout} = useAuth()
 console.log("user",user)
 const {ticketResources,  ticketLoading} = useTickets();
 
-console.log(ticketResources[ticketResources.length-1])
-const data= (ticketResources[ticketResources.length-1])
-const value=`{owner:${user.username},Match:${data.id}}`
+const [data,setTickets ] = useState([])
+const [user1,setUser ] = useState([])
 
-function padTo2Digits(num) {
-  return num.toString().padStart(2, '0');
-}
+useEffect(()=>{
+  if ((ticketResources[ticketResources.length-1])!= undefined){
+    setTickets((ticketResources[ticketResources.length-1]))
+    setUser(user)
+  }
+},[])
+console.log("data", data)
+const value=`{Owner:${user1.username}Match Id :${data.id}}`
 
-function formatDate(date) {
-  return (
-    [
-      date.getFullYear(),
-      padTo2Digits(date.getMonth() + 1),
-      padTo2Digits(date.getDate()),
-    ].join('-') +
-    ' ' +
-    [
-      padTo2Digits(date.getHours()),
-      padTo2Digits(date.getMinutes()),
- 
-    ].join(':')
-  );
-}
-
-
-const d= formatDate(new Date(data.created_date));
    return (
 
 
@@ -75,7 +64,7 @@ const d= formatDate(new Date(data.created_date));
           
           <div className=" font-mono  ml-16 mt-2 flex flex-row  text-white w-auto">
         
-          <div className="basis-1/2 pl-4" >Date:{d}</div>
+          <div className="basis-1/2 pl-4" >Date:{data.match}</div>
           <div className="basis-1/2"> Price:{data.price}$ </div>
         
            </div>

@@ -32,7 +32,7 @@ export default function useTickets() {
          
             await axios.post(apiUrl, info, config());
             window.open(apiUrl1)
-            window.close()
+     
             // await axios.get(apiUrl1, info, config());
             mutate(); // mutate causes complete collection to be refetched
         } catch (error) {

@@ -16,12 +16,12 @@ const {ticketResources,  ticketLoading, createTicket } = useTickets();
 const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
 
 
-const router = useRouter()
-  function redirect (){
-    setTimeout(()=>{
-      router.push('./TicketSubmit')
-    },500)
-  }
+// const router = useRouter()
+//   function redirect (){
+//     setTimeout(()=>{
+//       router.push('./TicketSubmit')
+//     },500)
+//   }
 
 
 
@@ -152,7 +152,7 @@ World Cup Qatar 2022™
 </div>
 </section>
 
-<section className="">
+<section className="bg-gray-100">
       {/* form section */}
      <div class="min-h-screen flex items-center justify-center bg-grey-500">
         <div class="bg-white p-16 rounded shadow-2xl w-2/3">
@@ -202,7 +202,7 @@ World Cup Qatar 2022™
               </select>
             </div>
 
-            <button onClick={redirect}
+            <button 
               class="block w-full bg-black hover:bg-red-600 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
               type="submit"
             >
@@ -210,7 +210,7 @@ World Cup Qatar 2022™
             </button>
             {/* </Link> */}
       
-         
+            {/* onClick={redirect} */}
         
           </form>
         </div>
