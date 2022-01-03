@@ -17,6 +17,7 @@ const Login = () => {
     e.preventDefault()
     login(credintials.username,credintials.password)
   }
+  
   function redirect(){
       setTimeout(()=>{
         router.back()
