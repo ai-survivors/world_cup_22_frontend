@@ -6,6 +6,8 @@ import Link from "next/link";
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Head from "next/head";
+import { useRouter } from 'next/router';
+
 
 const TicketForm = () => {
 const {user , login , logout} = useAuth()
@@ -13,10 +15,19 @@ const { matchesResource, loading } = useMatch();
 const {ticketResources,  ticketLoading, createTicket } = useTickets();
 const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
 
+const router = useRouter()
+  function redirect (){
+    setTimeout(()=>{
+      router.push('./TicketSubmit')
+    },500)
+  }
+
+
 
   console.log("ticketResources", ticketResources)
 
   const [matches, setMatches] = useState([]);
+  // const [mat]
 
 
 
@@ -32,13 +43,16 @@ const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
 
 
   const handleSubmit = async (e) => {
+
+    console.log();
     e.preventDefault();
-    console.log(e.target.name.value);
+
+
     const obj = {
       owner: user.id,
       description: "",
       price: 65,
-      match:5,
+      match:e.target.match.value,
     };
     console.log("user", user);
     createTicket(obj);
@@ -151,8 +165,8 @@ const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
                 id="match"
                 class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
               >
-                {matches.map((data) => {
-                  return <option value="free">{data.title}</option>;
+                {matches.map((match) => {
+                  return <option value={match.id} >{match.title}</option>;
                 })}
               </select>
             </div>
@@ -163,7 +177,7 @@ const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
               </label>
               <select
                 name="class"
-                id="match"
+                id="class"
                 class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
               >
                 {ticketsCat.map((data) => {
@@ -181,14 +195,14 @@ const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
               </label>
               <input type="file" accept="image/*" />
             </div> */}
-           <Link href="./TicketSubmit">
-            <button
+           {/* <Link href="./TicketSubmit"> */}
+            <button onClick={redirect}
               class="block w-full bg-pink-800 hover:bg-yellow-300 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
               type="submit"
             >
               Submit
             </button>
-            </Link>
+            {/* </Link> */}
       
          
         
