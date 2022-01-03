@@ -3,51 +3,66 @@ import Footer from "../components/Footer";
 import { useAuth } from '../contexts/auth'
 import useTickets from "../hooks/useTickets";
 import QRCode from "qrcode.react";
-import { useEffect,useState } from "react";
 
 
 
 const TicketSubmit = () => {
-const {user , login , logout,tokens} = useAuth()
+const {user , login , logout} = useAuth()
 const {ticketResources,  ticketLoading, createTicket } = useTickets();
-console.log("tickets ",ticketResources);
-console.log("tokens ",tokens);
-
-const [tickets,setTickets ] = useState([])
-
-useEffect(()=>{
-   if (ticketResources != undefined){
-     setTickets(ticketResources)
-   }
-},[ticketResources,tickets])
-
-console.log("tickets ",tickets);
 
   return (
     <>
       <Header />
       
-      { tickets.map((data) => {
-        
+      { !ticketLoading &&  ticketResources.map((data) => {
+       
+      
             if (data.owner==user.id){
+              // var todayDate = new Date(data.created_date).toISOString().split('T')[0]
+              function padTo2Digits(num) {
+                return num.toString().padStart(2, '0');
+              }
+              
+              function formatDate(date) {
+                return (
+                  [
+                    date.getFullYear(),
+                    padTo2Digits(date.getMonth() + 1),
+                    padTo2Digits(date.getDate()),
+                  ].join('-') +
+                  ' ' +
+                  [
+                    padTo2Digits(date.getHours()),
+                    padTo2Digits(date.getMinutes()),
+                    padTo2Digits(date.getSeconds()),
+                  ].join(':')
+                );
+              }
+              
+              // 👇️ 2021-10-24 16:21:23 (yyyy-mm-dd hh:mm:ss)
+         
+              
+              //  👇️️ 2025-05-04 05:24:07 (yyyy-mm-dd hh:mm:ss)
+            const d= formatDate(new Date(data.created_date));
+              
               return (
 
                 <div className="ml-80"  >
                 
                 <div className="bg-[url('https://images.assetsdelivery.com/compings_v2/gavrby/gavrby2104/gavrby210400021.jpg')]  mt-10 w-2/3 mr-50 h-80  rounded-3xl bg-cover " >
                   <div>
-                    <div className="pt-5 pb-5 pl-20 pr-20 rounded-3xl">
+                    <div className=" pt-5 pb-5 pl-20 pr-20 rounded-3xl">
                     <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='150'/> 
-                      <h2 className="font-mono text-3xl font-extrabold tracking-tight text-white sm:text-4xl mt-50">
+                      <h2 className=" font-mono text-3xl font-extrabold tracking-tight text-white sm:text-4xl mt-50">
                         World Cup Ticket{" "}
                       </h2>
                     </div>
                     <div className="float-right pr-6">
                       <QRCode id="abc" value="rr" />
                     </div>
-                    <div className="flex flex-row w-auto ml-20 font-mono text-white ">
+                    <div className=" font-mono  ml-20 flex flex-row  text-white w-auto">
                    
-                     <div className="basis-1/2"> Match between: {data.match}</div>
+                     <div className="basis-2/3"> Match between: {data.match}</div>
                      <div className="basis-1/2"> Price:{data.price} </div>
                      <div className="basis-1/2">Class: Gold one</div>
                    
@@ -55,8 +70,9 @@ console.log("tickets ",tickets);
                    
                     </div>
                     
-                    <div className="flex flex-row w-auto mt-2 ml-20 font-mono text-white ">
-                    <div className="basis-1/2" >Date:{data.created_date}</div>
+                    <div className=" font-mono  ml-16 mt-2 flex flex-row  text-white w-auto">
+                  
+                    <div className="basis-1/2 pl-4" >Date:{d}</div>
                      <div className="basis-1/2">Seat:19-Zone: A</div>
                   
                   
