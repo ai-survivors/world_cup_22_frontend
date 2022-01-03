@@ -1,6 +1,7 @@
 import axios from 'axios';
 import useSWR from 'swr';
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/tickets/';
+export const apiUrl1 = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/buyticket/';
 import { useAuth } from '../contexts/auth'
 
 export default function useTickets() {
@@ -28,7 +29,11 @@ export default function useTickets() {
     async function createTicket(info) {
 
         try {
+         
             await axios.post(apiUrl, info, config());
+            window.open(apiUrl1)
+            window.close()
+            // await axios.get(apiUrl1, info, config());
             mutate(); // mutate causes complete collection to be refetched
         } catch (error) {
             handleError(error);

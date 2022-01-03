@@ -15,6 +15,7 @@ const { matchesResource, loading } = useMatch();
 const {ticketResources,  ticketLoading, createTicket } = useTickets();
 const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
 
+
 const router = useRouter()
   function redirect (){
     setTimeout(()=>{
@@ -27,7 +28,8 @@ const router = useRouter()
   console.log("ticketResources", ticketResources)
 
   const [matches, setMatches] = useState([]);
-  // const [mat]
+
+  console.log(matches)
 
 
 
@@ -39,22 +41,26 @@ const router = useRouter()
   }, [ matchesResource,matches]);
   console.log("user", user);
 
+  
 
 
 
   const handleSubmit = async (e) => {
-
-    console.log();
+    
     e.preventDefault();
-
+  
 
     const obj = {
       owner: user.id,
       description: "",
       price: 65,
       match:e.target.match.value,
+  
+      
+
     };
-    console.log("user", user);
+    console.log("", user);
+   
     createTicket(obj);
   
   };
@@ -146,7 +152,7 @@ World Cup Qatar 2022™
 </div>
 </section>
 
-
+<section className="">
       {/* form section */}
      <div class="min-h-screen flex items-center justify-center bg-grey-500">
         <div class="bg-white p-16 rounded shadow-2xl w-2/3">
@@ -172,7 +178,11 @@ World Cup Qatar 2022™
                 class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
               >
                 {matches.map((match) => {
-                  return <option value={match.id} >{match.title}</option>;
+                  if (match.number_of_tickets<= 0){
+                  {return <option value={match.id}  disabled >{match.title}: sold out </option>}
+                 }
+                  else
+                  return <option value={match.id} >{match.title}:  {match.number_of_tickets} remaining tickets </option>;
                 })}
               </select>
             </div>
@@ -192,21 +202,11 @@ World Cup Qatar 2022™
               </select>
             </div>
 
-            {/* <div>
-              <label
-                for="membership"
-                class="block mb-1 font-bold text-gray-500"
-              >
-                Please upload your vaccinated certificate:
-              </label>
-              <input type="file" accept="image/*" />
-            </div> */}
-           {/* <Link href="./TicketSubmit"> */}
             <button onClick={redirect}
-              class="block w-full bg-pink-800 hover:bg-yellow-300 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
+              class="block w-full bg-black hover:bg-red-600 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
               type="submit"
             >
-              Submit
+              Book Ticket
             </button>
             {/* </Link> */}
       
@@ -215,7 +215,7 @@ World Cup Qatar 2022™
           </form>
         </div>
       </div> 
-      
+      </section>
       
      < Footer/>
     </>
