@@ -18,7 +18,6 @@ const Profile = () => {
 <div className="flex items-center pl-4">
 <Link href="/">
 <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
-
 </Link>
 </div>
 <div className="block pr-4 lg:hidden">
@@ -47,19 +46,38 @@ const Profile = () => {
 </li>
 </Link>
 <>
+{ user ?
+<>
 <div>
 <Link href="./Profile">
 <a className="inline-block px-4 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Profile</a>
 </Link>
 </div>
-  <div>
+  <div className='pr-2'>
 <p
                     id="navAction"
-                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                    className="px-5 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
                   >
                    {user.username}
                     </p>
-                    </div></>
+                    </div>
+<div>
+<Link href="/">
+     <button onClick={logout}
+                  id="navAction"
+                  className="px-5 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                >Logout</button>
+                </Link></div>
+    </>  
+                      :
+                   <Link href="./Login">
+                  <button 
+                    id="navAction"
+                    className="px-8 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
+                  >Login</button>
+                </Link>
+                } 
+</>
 </ul>
 </div>
 </div>
