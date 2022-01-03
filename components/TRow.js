@@ -11,6 +11,7 @@ export default function TRow(props) {
     const [Votes, setVotes] = useState([])
     const { teamResources, teamLoading, createTeam, deleteTeam, updateTeam, } = useTeams();
     const { VoteResources, voteLoading, createVote, deletevote, updateVote, } = useVotes();
+    const [voted,setVoted] = useState(false)
 
 
     useEffect(() => {
@@ -37,6 +38,7 @@ export default function TRow(props) {
             if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
                 console.log("you are voted for  " + match.title)
                  flag = true;
+                 setVoted(true);
 
             }  }) 
 
@@ -63,6 +65,7 @@ export default function TRow(props) {
             if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
                 console.log("you are voted for  " + match.title)
                  flag = true;
+                 setVoted(true);
 
             }  }) 
 
@@ -97,7 +100,7 @@ export default function TRow(props) {
             </td>
             <td class="p-2 whitespace-nowrap">
             {user && 
-            <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2  px-4 rounded-full" onClick={(e) => { vote(e, props.match) }} >
+            <button disabled={!voted} className={`px-4 py-2 font-bold ${voted &&  'hover:bg-orange-500' } text-black bg-white border-2 rounded-full  `} onClick={(e) => { vote(e, props.match) }} >
             vote
            </button> 
                   
@@ -125,7 +128,7 @@ export default function TRow(props) {
             </td>
             <td class="p-6 whitespace-nowrap">
                 {user &&
-                <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2  px-4 rounded-full" onClick={(e) => { vote2(e, props.match) }} >
+                <button disabled={!voted} className= {`px-4 py-2 font-bold ${voted &&  'hover:bg-orange-500' } text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
                 vote
             </button>
                  /* Votes.map(vote => {
