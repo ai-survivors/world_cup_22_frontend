@@ -78,8 +78,8 @@ const Croatia = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAACfCAMAAABX0
 <section className="pt-3 pb-3 bg-gray-100 ">
 {/* FINAL */}
 <div class=" pt-3 pb-3 flex  flex-col items-center justify-center">
-    <div class=" px-20 py-10 mx-auto bg-white rounded-2xl shadow-xl">
-    <p className='pb-5 text-2xl font-medium text-center'>FINAL WORLD CUP 2018</p>
+    <div class=" px-20 py-10 mx-auto bg-gray-100 rounded-2xl">
+    <p className='pb-5 text-2xl font-medium text-center'>THE FINAL</p>
         <div>
             <div>
                 <ul class="flex items-center justify-center">

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Footer from '../components/Footer'
 import { useAuth } from '../contexts/auth';
 import { useRouter } from 'next/router';
+import Nav from '../components/Nav';
 const Login = () => {
     const {user , login , logout} = useAuth()
     const router = useRouter()
@@ -28,53 +29,12 @@ const Login = () => {
   }
     return (
         <>
-<section>
-<div className="leading-normal tracking-normal text-white gradient">
-<nav id="header" className="fixed top-0 z-30 w-full py-1 text-white bg-black opacity-75">
-<div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
-<div className="flex items-center pl-4">
-<Link href="/">
-<img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120'/>
-
-</Link>
-</div>
-<div className="block pr-4 lg:hidden">
-<button id="nav-toggle" className="flex items-center p-1 text-white transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
-<svg className="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<title>Menu</title>
-<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-</svg>
-</button>
-</div>
-<div className="z-20 flex-grow hidden w-full p-4 mt-2 text-white bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0" id="nav-content">
-<ul className="items-center justify-end flex-1 list-reset lg:flex">
-<Link href="./Matches">
-  <li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Matches</a>
-</li>
-</Link>
-<Link href="./TicketForm">
-<li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Ticket</a>
-</li>
-</Link>
-<Link href="./WorldCupHistory">
-<li className="mr-3">
-<a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Last World Cup</a>
-</li>
-</Link>
-</ul>
-</div>
-</div>
-</nav>
-</div>
-</section>
             <head>
                 <meta charset="utf-8" />
                 <meta name="viewport" content="width=device-width" />
-                <title>Contact Form Template</title>
                 <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
             </head>
+            <Nav/>
             <body class='pt-16'>
                 <div class="lg:flex">
                     <div class="lg:w-1/2 xl:max-w-screen-sm">
@@ -105,7 +65,7 @@ const Login = () => {
                                             <div>
                                             </div>
                                         </div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Enter your password" name="password" onChange={passwordChangeHandler} />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name="password" onChange={passwordChangeHandler} />
                                     </div>
                                     <div class="mt-10">
                                         <button class="bg-indigo-600 text-gray-100 p-4 w-full rounded-full tracking-wide
