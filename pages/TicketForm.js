@@ -7,13 +7,14 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Head from "next/head";
 import { useRouter } from 'next/router';
+import RadioButton from '../components/RadioButton'
 
 
 const TicketForm = () => {
 const {user , login , logout} = useAuth()
 const { matchesResource, loading } = useMatch();
 const {ticketResources,  ticketLoading, createTicket } = useTickets();
-const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
+const ticketsCat=["A", "B" , "C" , "D"]
 
 
 // const router = useRouter()
@@ -49,14 +50,14 @@ const ticketsCat=["Class One", "Class Two" , "Class Three" , "Class Four"]
     
     e.preventDefault();
   
+    console.log("class", e.target.class.value);
 
     const obj = {
       owner: user.id,
       description: "",
       price: 65,
       match:e.target.match.value,
-  
-      
+      ticket_class:e.target.class.value,
 
     };
     console.log("", user);
@@ -169,9 +170,11 @@ World Cup Qatar 2022™
                 for="membership"
                 class="block mb-1 font-bold text-gray-500"
               >
-                Choose the Match:
+                Choose Your  Ticket:
               </label>
-
+              
+           
+              
               <select
                 name="match"
                 id="match"
@@ -182,7 +185,7 @@ World Cup Qatar 2022™
                   {return <option value={match.id}  disabled >{match.title}: sold out </option>}
                  }
                   else
-                  return <option value={match.id} >{match.title}:  {match.number_of_tickets} remaining tickets </option>;
+                  return <option value={match.id} >Match:  {match.title}  --   Match Date:  {match.match_date}  --  Tickets :  A: {match.number_of_tickets_A} B:  {match.number_of_tickets_B} C:  {match.number_of_tickets_C} D: {match.number_of_tickets_D} </option>;
                 })}
               </select>
             </div>
@@ -197,7 +200,8 @@ World Cup Qatar 2022™
                 class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
               >
                 {ticketsCat.map((data) => {
-                  return <option >{data}</option>;
+
+                  return  <option value={data} >Class {data}</option>;
                 })}
               </select>
             </div>

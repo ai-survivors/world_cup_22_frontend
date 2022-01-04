@@ -93,12 +93,14 @@ return (
                   <QRCode id="abc" value={value} />
                 </div>
                 <div className="flex flex-row w-auto ml-20 font-mono text-white ">
-                 <div className="basis-1/2"> Price:{data.price} $ </div>
-                 <div className="basis-1/2">Class: Gold one</div>
+                  {data.ticket_class=="A" &&    <div className="basis-1/2"> Price:{data.price+45}  $ </div>}
+                  {data.ticket_class=="B" &&    <div className="basis-1/2"> Price:{data.price+30} $ </div>}
+                  {data.ticket_class=="C" &&    <div className="basis-1/2"> Price:{data.price+20} $ </div>}
+                  {data.ticket_class=="D" &&    <div className="basis-1/2"> Price:{data.price} $ </div>}
                 </div>
                 <div className="flex flex-row w-auto mt-2 ml-20 font-mono text-white ">
                 <div className="basis-1/2" > Date : {data.match.match_date}</div>
-                 <div className="basis-1/2">Seat:19-Zone: A</div>
+                 <div className="basis-1/2">Seat:{data.id+101}  Zone:{data.ticket_class}</div>
                  </div>
                 <button  class="mt-5 ml-20 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
                   <svg

@@ -15,7 +15,7 @@ function redirect(){
       
         logout()
       
-    },500)
+    },1000)
    
     //router.push('/')
     //router.go(-1)
