@@ -43,7 +43,7 @@ export default function Table(props) {
                 
             </tr>
         </thead>
-        <tbody class="text-sm divide-y divide-gray-100">
+        <tbody className="text-sm w-30 divide-y divide-gray-100">
             {
               
                       <TRow match={props.match} 
