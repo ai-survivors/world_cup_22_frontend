@@ -8,6 +8,8 @@ import Nav from '../components/Nav';
 function SignUp() {
     const { usersResources, error, userLoading, createUser, deleteUser, updateUser, } = useUser();
     const router = useRouter()
+
+    
  
     function handleCreateUser(e) {
         e.preventDefault()
