@@ -80,7 +80,7 @@ export default function TRow(props) {
             </td>
             <td class="p-2 whitespace-nowrap">
             {(user && flag)?
-            <button  className={`animate-pulse px-4 py-2 font-bold hover:bg-orange-500  text-black bg-white border-2 rounded-full  `} onClick={(e) => { vote(e, props.match) }} >
+            <button  className={` px-4 py-2 font-bold hover:bg-orange-500  text-black bg-white border-2 rounded-full  `} onClick={(e) => { vote(e, props.match) }} >
             Vote
            </button> :
             (user && flag2 )&&
@@ -91,15 +91,16 @@ export default function TRow(props) {
             }        
 
             </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center"> {props.match.team1.country} </div>
-                
-
-            </td>
+          
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center">
                 <span> <img src={props.match.team1.flag} width="20" height="20" /></span>
                 </div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-lg text-center"> {props.match.team1.country} </div>
+                
+
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class=" text-center"> {props.match.time} GMT</div>
@@ -117,7 +118,7 @@ export default function TRow(props) {
             </td>
             <td class="p-6 whitespace-nowrap">
                 {(user && flag )  ?
-                <button  className= {`animate-pulse px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
+                <button  className= {` px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
                 Vote
             </button>
               :
