@@ -3,6 +3,7 @@ import Link from "next/link";
 import Footer from '../components/Footer'
 import { useAuth } from '../contexts/auth';
 import { useRouter } from 'next/router';
+
 import Nav from '../components/Nav';
 const Login = () => {
     const {user , login , logout} = useAuth()

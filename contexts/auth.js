@@ -51,6 +51,7 @@ export function AuthProvider(props) {
         localStorage.setItem('state', JSON.stringify(newState))
     }
     function logout() {
+        
         const newState = {
             tokens: null,
             user: null,
