@@ -22,7 +22,7 @@ const Login = () => {
   
   function redirect(){
       setTimeout(()=>{
-        router.back()
+        router.push("/")
         
       },500)
       //router.push('/')

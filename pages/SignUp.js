@@ -22,7 +22,7 @@ function SignUp() {
     }
     function redirect() {
         setTimeout(() => {
-            router.back()
+            router.push('/Login')
 
         }, 500)
         //router.push('/')
@@ -66,7 +66,7 @@ function SignUp() {
                                     </div>
                                     <div>
                                         <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide">Email</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="email" placeholder="Enter your email" name='email' />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"  refs="email" type="email" placeholder="Enter your email" name='email' required/>
                                     </div>
                                     <div class="mt-8">
                                         <div class="flex justify-between items-center">
