@@ -38,6 +38,7 @@ export default function TRow(props) {
             if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
                 console.log("you are voted for  " + match.title)
                  flag = true;
+                 return
                  setVoted(true);
 
             }  }) 
@@ -65,6 +66,7 @@ export default function TRow(props) {
             if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
                 console.log("you are voted for  " + match.title)
                  flag = true;
+                 return
                  setVoted(true);
 
             }  }) 
@@ -80,7 +82,7 @@ export default function TRow(props) {
                             team: match.team2.team2_id
                         }
                         createVote(addVote)            
-                    }
+  }
 
     
 
@@ -116,11 +118,12 @@ export default function TRow(props) {
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center">
-                <span> <img src={props.match.team1.flag} width="15" height="15" /></span>
+                <span> <img src={props.match.team1.flag} width="20" height="20" /></span>
                 </div>
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
-                <div class="text-center"> {props.match.time}</div>
+                <div class=" text-center"> {props.match.time} GMT</div>
+                <div class=" pt-5 pb-10 text-center"> VS</div>
             </td>
 
             <td class="p-2 whitespace-nowrap">
@@ -128,7 +131,7 @@ export default function TRow(props) {
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class="text-center"> 
-                <span> <img src={props.match.team2.flag} width="15" height="15" /></span>
+                <span> <img src={props.match.team2.flag} width="20" height="20" /></span>
 
                 </div>
             </td>
@@ -137,19 +140,7 @@ export default function TRow(props) {
                 <button  className= {`px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
                 vote
             </button>
-                 /* Votes.map(vote => {
-                   
-                    if (!(vote.owner == user.username) && !(vote.match.matchid == match.id)) {
-                        console.log("you are voted for  " + match.title)
-                        return <button class=" border-2 bg-white hover:bg-orange-500 text-black font-bold py-2  px-4 rounded-full" onClick={(e) => { vote2(e, props.match) }} >
-                            vote
-                        </button>
-
-                    }
-
-                    
-                })  */
-        
+              
                   
             }               
                 

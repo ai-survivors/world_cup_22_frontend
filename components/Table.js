@@ -19,7 +19,7 @@ export default function Table(props) {
                     <div class="font-semibold text-left"></div>
                 </th>
                 <th class="p-2 whitespace-nowrap">
-                    <div class="font-semibold text-left">Matches</div>
+                    <div class=" font-semibold text-left"></div>
                 </th>
                 <th class="p-2 whitespace-nowrap">
                     <div class="font-semibold text-left"></div>
