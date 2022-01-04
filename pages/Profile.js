@@ -1,19 +1,32 @@
+
+import {useRef} from 'react'
+import '@progress/kendo-theme-material/dist/all.css';
+// import kendoka from 'react-kendo'
+import {PDFExport,savePDF} from '@progress/kendo-react-pdf'
 import React from "react";
 import Link from "next/link";
-import Header from "../components/Header";
+import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useAuth } from "../contexts/auth";
 import useTickets from "../hooks/useTickets";
 import { useEffect,useState } from "react";
 import QRCode from "qrcode.react";
 import useVotes from "../hooks/useVotes";
-import Nav from '../components/Nav';
+
 const Profile = () => {
+  const pdfExport = useRef(null)
+  const contentArea = useRef(null)
+
+  const download = ()=>{
+    savePDF(contentArea.current,{paperSize:"A4"})
+    // pdfExport.current.save();
+  }
   const { user, login, logout,tokens } = useAuth();
   const {ticketResources,  ticketLoading, createTicket } = useTickets();
   const { VoteResources,createVote,deletevote, updateVote, } = useVotes();
   const [tickets,setTickets ] = useState([])
   const [votes,setVotes ] = useState([])
+
   useEffect(()=>{
      if (ticketResources != undefined){
        setTickets(ticketResources)
@@ -25,7 +38,10 @@ const Profile = () => {
     }
  },[VoteResources])
   console.log("votes ", votes);
-  return (
+
+
+
+return (
     <>
       <head>
         <link
@@ -35,16 +51,16 @@ const Profile = () => {
       </head>
 <Nav/>
       <body class="pt-28 bg-[url('https://i.ytimg.com/vi/MG9_skWiNfs/maxresdefault.jpg')] font-awesome antialiased text-gray-900 leading-normal tracking-wider bg-cover">
-        <div class="ml-20 max-w-full flex items-center h-auto flex-wrap mx-auto lg:my-0">
+        <div class="mx-10 max-w-full flex items-center h-auto flex-wrap  lg:my-0">
           <div
             id="profile"
-            class="w-full  lg:w-11/12 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0"
+            class="w-screen  lg:w-12/12 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white  mx-6 lg:mx-0"
           >
             <div class="p-4 md:p-12 text-center lg:text-left">
               <section className="grid grid-cols-2">
-                <h1 class="text-3xl text-center font-bold pt-8 lg:pt-0">{user ? 
+                <h1 class="text-3xl  font-bold pt-8 lg:pt-0">{user ?
                        user.username:<></>} </h1>
-                <p class="pt-5 pr-5 font-bold text-white-600 text-xs lg:text-sm flex items-center text-center justify-center lg:justify-start ml-60">
+                <p class="pt-5 pr-5 font-bold text-white-600 text-xs lg:text-sm flex items-center text-center justify-center lg:justify-start ml-20">
                   <svg
                     class="h-4  fill-current text-red-900 pr-4"
                     xmlns="http://www.w3.org/2000/svg"
@@ -59,43 +75,54 @@ const Profile = () => {
               </section>
               <div class="mx-auto lg:mx-0 w-5/5 pt-3 border-b-2 border-red-900 opacity-50"></div>  
               <section className="grid grid-cols-2 gap-40 mt-10">
-                <h1 class="text-3xl font-bold pt-8 lg:pt-0 text-center">Tickets </h1>
-                <h1 class="text-3xl font-bold pt-8 lg:pt-0 text-center">Votes </h1>
+                <h1 class="text-3xl font-bold pt-8 lg:pt-0 ">Your Tickets </h1>
+                <h1 class="text-3xl font-bold pt-8 lg:pt-0 ">Your Votes </h1>
               </section>
               <div class="mx-auto lg:mx-0 w-5/5 pt-3 border-b-2 border-red-900 opacity-50"></div>
-
-<section className='grid grid-cols-2 divide-x'>
-<section id='1'>
+<section className='grid grid-cols-2 gap-10 divide-x'>
+<section id='1'  >
 {/* LOOP INTO TICKETS */}
 {/* LOOP INTO TICKETS */}
 {/* LOOP INTO TICKETS */}
               { tickets.map((data) => {
+
         if (data.owner == user.id){
+
+          const value=`{Owner:${user.username}Match Id :${data.id}}`
           return (
-<div className="">
-            <div className="w-full"  >
-            <div className="bg-[url('https://images.assetsdelivery.com/compings_v2/gavrby/gavrby2104/gavrby210400021.jpg')]  mt-10  h-80  rounded-3xl bg-cover " >
-              <div>
-                <div className="pt-5 pb-5 pl-20 pr-20 rounded-3xl">
-                <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='100'/> 
+             
+           <div className="" id="divToPrint"  >
+            <div className="w-11/12 font-semibold" >
+            <PDFExport ref={pdfExport} paperSize='A4'> 
+            <div ref={contentArea} className=" bg-[url('/bg.jpg')]  mt-10  h-80  rounded-3xl bg-cover "   >
+              <div >
+                <div className="pt-5 pl-10 pr-20 rounded-3xl ">
+                <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='100'/>
                   <h2 className="font-mono text-3xl font-extrabold tracking-tight text-white sm:text-4xl mt-50">
                     World Cup Ticket{" "}
                   </h2>
-                  <div className="text-white"> Match between: {data.match}</div>
+                  <div className="pt-2 font-bold text-white "> Match between: {data.match.title}  </div>
                 </div>
-                <div className="float-right pr-6">
-                  <QRCode id="abc" value="rr" />
+                <div className="float-right pr-4 pt-7">
+                  <QRCode id="abc" value={value} />
                 </div>
-                <div className="flex flex-row w-auto ml-20 font-mono text-white ">
-               
-                 <div className="basis-1/2"> Price:{data.price} </div>
-                 <div className="basis-1/2">Class: Gold one</div>
+                <div className="flex flex-row w-auto pt-2 ml-10 font-mono text-white ">
+                  {data.ticket_class=="A" &&    <div className="basis-1/2"> Price:{data.price+45}  $ </div>}
+                  {data.ticket_class=="B" &&    <div className="basis-1/2"> Price:{data.price+30} $ </div>}
+                  {data.ticket_class=="C" &&    <div className="basis-1/2"> Price:{data.price+20} $ </div>}
+                  {data.ticket_class=="D" &&    <div className="basis-1/2"> Price:{data.price} $ </div>}
+                 
                 </div>
-                <div className="flex flex-row w-auto mt-2 ml-20 font-mono text-white ">
-                <div className="basis-1/2" > Date : {data.created_date.split('T',1)}</div>
-                 <div className="basis-1/2">Seat:19-Zone: A</div>
+                <div className="pt-2 ml-10 text-white">Seat:{data.id+101}  Zone:{data.ticket_class}</div>
+                <div className="flex flex-row w-auto mt-2 ml-10 font-mono text-white ">
+                <div className="" > Date : {data.match.match_date}</div>
+                
                  </div>
-                <button class="mt-5 ml-20 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
+
+              </div>
+            </div>
+            </PDFExport>
+            <button  class="mt-5 ml-10 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center " onClick={download}>
                   <svg
                     class="fill-current w-4 h-4 mr-2"
                     xmlns="http://www.w3.org/2000/svg"
@@ -105,18 +132,15 @@ const Profile = () => {
                   </svg>
                   <span>Download</span>
                 </button>
-              </div>
-            </div>
           </div>
           </div>
+         
           )
         }
             })}
-{/* END LOOP INTO TICKETS */}
-{/* END LOOP INTO TICKETS */}
-{/* END LOOP INTO TICKETS */}
+
 </section>
-<section id='2'><div>
+<section id='2' className='pt-5 pl-5'><div>
               <div class="flex flex-col justify-center h-full">
         <div class="w-full max-w-2xl mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
             <header class="px-5 py-4 border-b border-gray-100">
@@ -138,34 +162,23 @@ const Profile = () => {
                             </tr>
                         </thead>
                         <tbody class="text-sm divide-y divide-gray-100">
-                        
-
-{/* LOOP INTO VOTES */}
-{/* LOOP INTO VOTES */}
-{/* LOOP INTO VOTES */}
-         { /*        {votes.map((vote,idx)=>{
-                          console.log('hi');
+          {votes.map((vote,idx)=>{
                           if (vote.owner == user.username){
-                            
                       return <> <tr>
                                 <td class="p-2 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="font-medium text-gray-800">match vs match</div>
+                                        <div class="font-medium text-gray-800">{vote.match.title}</div>
                                     </div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
-                                    <div class="text-left">team 1</div>
+                                <td class="p-2 whitespace-nowrap ">
+                                    <div class="text-left">{vote.team} ✔ </div>
                                 </td>
                                 <td class="pl-3 whitespace-nowrap">
-                                    <div class="pl-10 text-left font-medium text-gray-800">team 2</div>
+                                    <div class="pl-10 text-left font-medium text-gray-800">{vote.match.team1 == vote.team ? vote.match.team2:vote.match.team1}</div>
                                 </td>
-                            </tr> </> 
+                            </tr> </>
                           }
                   })}
-                */}
-{/* END LOOP INTO VOTES */}
-{/* END LOOP INTO VOTES */}
-{/* END LOOP INTO VOTES */}
                         </tbody>
                       </table>
                 </div>
@@ -179,15 +192,8 @@ const Profile = () => {
           </div>
         </div>
       </body>
-       <Footer /> 
+       <Footer />
     </>
   );
 };
 export default Profile;
-/*
- <div key={idx}> 
-                       <div className=""> You voted for {vote.team}</div>
-                      <div className=""> in {vote.match} match</div>
-                      <hr></hr>
-                      </div>
-*/
