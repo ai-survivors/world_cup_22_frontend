@@ -13,6 +13,25 @@ export default function TRow(props) {
     const { VoteResources, voteLoading, createVote, deletevote, updateVote, } = useVotes();
     const [voted,setVoted] = useState(false)
 
+    var flag =  true; 
+    var flag1 = true; 
+    var flag2 = true; 
+
+    Votes.forEach(vote => {
+                   
+        if ((vote.owner == user.username) && (vote.match.matchid == props.match.id) ) {
+            flag = false;
+
+            if ((vote.team == props.match.team1.country)){
+                flag1 = false;
+
+
+            }else if (((vote.team == props.match.team2.country))){
+                flag2 = false;
+
+            }
+
+        }  }) 
 
     useEffect(() => {
         if (teamResources) {
@@ -26,27 +45,8 @@ export default function TRow(props) {
         }
     }, [VoteResources, Votes])
 
-
-
     const vote = (e, match) => {
-        let flag = false; 
-        
-        
-        Votes.forEach(vote => {
-            
-                   
-            if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
-                console.log("you are voted for  " + match.title)
-                 flag = true;
-                 return
-                 setVoted(true);
-
-            }  }) 
-
-             
-            if(flag){
-               return
-            }
+          
                 setFirstTeamVoting(prev => prev + 1)
                 const addVote = {
                     owner: user.id,
@@ -57,24 +57,7 @@ export default function TRow(props) {
     }
 
     function vote2(e, match) {
-        let flag = false; 
-        
-        
-        Votes.forEach(vote => {
-            
-                   
-            if ((vote.owner == user.username) && (vote.match.matchid == match.id)) {
-                console.log("you are voted for  " + match.title)
-                 flag = true;
-                 return
-                 setVoted(true);
-
-            }  }) 
-
-             
-            if(flag){
-               return
-            }
+          
                 setSecondTeamVoting(prev => prev + 1)
                         const addVote = {
                             owner: user.id,
@@ -83,11 +66,6 @@ export default function TRow(props) {
                         }
                         createVote(addVote)            
   }
-
-    
-
-
-
 
     return (
         <tr>
@@ -101,25 +79,28 @@ export default function TRow(props) {
                 <div class="text-center"> </div>
             </td>
             <td class="p-2 whitespace-nowrap">
-            {user && 
-            <button  className={`px-4 py-2 font-bold hover:bg-orange-500  text-black bg-white border-2 rounded-full  `} onClick={(e) => { vote(e, props.match) }} >
-            vote
-           </button> 
-                  
-        
+            {(user && flag)?
+            <button  className={` px-4 py-2 font-bold hover:bg-orange-500  text-black bg-white border-2 rounded-full  `} onClick={(e) => { vote(e, props.match) }} >
+            Vote
+           </button> :
+            (user && flag2 )&&
+              <button  className={`px-4 py-2 font-bold hover:bg-orange-500  text-black bg-red-500 border-2 rounded-full  `} >
+              Voted
+             </button>
                   
             }        
 
+            </td>
+          
+            <td class="p-2 whitespace-nowrap m-auto">
+                <div class="text-center">
+                <span> <img src={props.match.team1.flag} width="20" height="20" /></span>
+                </div>
             </td>
             <td class="p-2 whitespace-nowrap">
                 <div class="text-lg text-center"> {props.match.team1.country} </div>
                 
 
-            </td>
-            <td class="p-2 whitespace-nowrap m-auto">
-                <div class="text-center">
-                <span> <img src={props.match.team1.flag} width="20" height="20" /></span>
-                </div>
             </td>
             <td class="p-2 whitespace-nowrap m-auto">
                 <div class=" text-center"> {props.match.time} GMT</div>
@@ -136,13 +117,16 @@ export default function TRow(props) {
                 </div>
             </td>
             <td class="p-6 whitespace-nowrap">
-                {user &&
-                <button  className= {`px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
-                vote
+                {(user && flag )  ?
+                <button  className= {` px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-white border-2 rounded-full `} onClick={(e) => { vote2(e, props.match) }} >
+                Vote
             </button>
-              
-                  
-            }               
+              :
+              (user && flag1 )&&
+              <button  className= {`px-4 py-2 font-bold   hover:bg-orange-500 text-black bg-red-500 border-2 rounded-full `} >
+              Voted
+          </button>
+            }          
                 
             </td>
             <td class="whitespace-nowrap">
