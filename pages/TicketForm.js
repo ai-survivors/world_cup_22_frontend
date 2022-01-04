@@ -58,6 +58,8 @@ const ticketsCat=["A", "B" , "C" , "D"]
       price: 65,
       match:e.target.match.value,
       ticket_class:e.target.class.value,
+  
+      
 
     };
     console.log("", user);
@@ -170,10 +172,15 @@ World Cup Qatar 2022™
                 for="membership"
                 class="block mb-1 font-bold text-gray-500"
               >
-                Choose Your  Ticket:
+                Choose the Match:
               </label>
               
-           
+              <label
+                for="membership"
+                class="block mb-1 font-bold text-gray-500 float-center"
+              >
+                Tickets Remaining:
+              </label>
               
               <select
                 name="match"
@@ -185,7 +192,7 @@ World Cup Qatar 2022™
                   {return <option value={match.id}  disabled >{match.title}: sold out </option>}
                  }
                   else
-                  return <option value={match.id} >Match:  {match.title}  --   Match Date:  {match.match_date}  --  Tickets :  A: {match.number_of_tickets_A} B:  {match.number_of_tickets_B} C:  {match.number_of_tickets_C} D: {match.number_of_tickets_D} </option>;
+                  return <option value={match.id} >Match:  {match.title}  -   Match Date:  {match.match_date}  - Remaining   A: {match.number_of_tickets_A} B:  {match.number_of_tickets_B} C:  {match.number_of_tickets_C} D: {match.number_of_tickets_D} </option>;
                 })}
               </select>
             </div>
