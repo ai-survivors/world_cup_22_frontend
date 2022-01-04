@@ -2,7 +2,24 @@ import React from 'react';
 import Link from "next/link";
 import { useAuth } from "../contexts/auth";
 
+import { useRouter } from 'next/router';
+
+
 const Nav = () => {
+
+    
+const router = useRouter()
+function redirect(){
+    router.push("/")
+    setTimeout(()=>{
+      
+        logout()
+      
+    },500)
+   
+    //router.push('/')
+    //router.go(-1)
+}
     const { user, login, logout } = useAuth();
     return (
         <>
@@ -56,7 +73,7 @@ const Nav = () => {
                                                 {user.username}
                                             </p>
                                         </div>
-                                        <div> <button onClick={logout}
+                                        <div> <button onClick={redirect}
                                             id="navAction"
                                             className="px-5 py-4 mx-auto mt-4 font-bold text-gray-800 bg-white rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105"
                                         >Logout</button></div>

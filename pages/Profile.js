@@ -93,7 +93,7 @@ return (
                   <QRCode id="abc" value={value} />
                 </div>
                 <div className="flex flex-row w-auto ml-20 font-mono text-white ">
-                 <div className="basis-1/2"> Price:{data.price} </div>
+                 <div className="basis-1/2"> Price:{data.price} $ </div>
                  <div className="basis-1/2">Class: Gold one</div>
                 </div>
                 <div className="flex flex-row w-auto mt-2 ml-20 font-mono text-white ">
