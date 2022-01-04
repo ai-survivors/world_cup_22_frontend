@@ -1,3 +1,8 @@
+
+import {useRef} from 'react'
+import '@progress/kendo-theme-material/dist/all.css';
+// import kendoka from 'react-kendo'
+import {PDFExport,savePDF} from '@progress/kendo-react-pdf'
 import React from "react";
 import Link from "next/link";
 import Nav from "../components/Nav";
@@ -9,6 +14,13 @@ import QRCode from "qrcode.react";
 import useVotes from "../hooks/useVotes";
 
 const Profile = () => {
+  const pdfExport = useRef(null)
+  const contentArea = useRef(null)
+
+  const download = ()=>{
+    savePDF(contentArea.current,{paperSize:"A4"})
+    // pdfExport.current.save();
+  }
   const { user, login, logout,tokens } = useAuth();
   const {ticketResources,  ticketLoading, createTicket } = useTickets();
   const { VoteResources,createVote,deletevote, updateVote, } = useVotes();
@@ -78,33 +90,39 @@ return (
 
           const value=`{Owner:${user.username}Match Id :${data.id}}`
           return (
-<div className="" id="divToPrint" >
-            <div className="w-11/12  font-semibold" >
-            <div className="bg-[url('https://images.assetsdelivery.com/compings_v2/gavrby/gavrby2104/gavrby210400021.jpg')]  mt-10  h-80  rounded-3xl bg-cover "   >
+             
+           <div className="" id="divToPrint"  >
+            <div className="w-11/12 font-semibold" >
+            <PDFExport ref={pdfExport} paperSize='A4'> 
+            <div ref={contentArea} className=" bg-[url('/bg.jpg')]  mt-10  h-80  rounded-3xl bg-cover "   >
               <div >
                 <div className="pt-5 pl-10 pr-20 rounded-3xl ">
                 <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='100'/>
                   <h2 className="font-mono text-3xl font-extrabold tracking-tight text-white sm:text-4xl mt-50">
                     World Cup Ticket{" "}
                   </h2>
-                  <div className="text-white pt-2 font-bold  "> Match between: {data.match.title}  </div>
+                  <div className="pt-2 font-bold text-white "> Match between: {data.match.title}  </div>
                 </div>
                 <div className="float-right pr-4 pt-7">
                   <QRCode id="abc" value={value} />
                 </div>
-                <div className="flex flex-row w-auto ml-10 font-mono pt-2 text-white ">
+                <div className="flex flex-row w-auto pt-2 ml-10 font-mono text-white ">
                   {data.ticket_class=="A" &&    <div className="basis-1/2"> Price:{data.price+45}  $ </div>}
                   {data.ticket_class=="B" &&    <div className="basis-1/2"> Price:{data.price+30} $ </div>}
                   {data.ticket_class=="C" &&    <div className="basis-1/2"> Price:{data.price+20} $ </div>}
                   {data.ticket_class=="D" &&    <div className="basis-1/2"> Price:{data.price} $ </div>}
                  
                 </div>
-                <div className="text-white ml-10 pt-2">Seat:{data.id+101}  Zone:{data.ticket_class}</div>
+                <div className="pt-2 ml-10 text-white">Seat:{data.id+101}  Zone:{data.ticket_class}</div>
                 <div className="flex flex-row w-auto mt-2 ml-10 font-mono text-white ">
                 <div className="" > Date : {data.match.match_date}</div>
                 
                  </div>
-                <button  class="mt-5 ml-10 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center ">
+
+              </div>
+            </div>
+            </PDFExport>
+            <button  class="mt-5 ml-10 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center " onClick={download}>
                   <svg
                     class="fill-current w-4 h-4 mr-2"
                     xmlns="http://www.w3.org/2000/svg"
@@ -114,10 +132,9 @@ return (
                   </svg>
                   <span>Download</span>
                 </button>
-              </div>
-            </div>
           </div>
           </div>
+         
           )
         }
             })}
