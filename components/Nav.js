@@ -22,10 +22,10 @@ function redirect(){
 }
     const { user, login, logout } = useAuth();
     return (
-        <>
-            <section>
+        < >
+            <section >
                 <div className="leading-normal tracking-normal text-white gradient">
-                    <nav id="header" className="fixed top-0 z-30 w-full text-white bg-black opacity-75">
+                    <nav id="header" className="fixed top-0 z-30 w-full text-white bg-black opacity-75  font-sans">
                         <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
                             <div className="flex items-center pl-4">
                                 <Link href="/">
@@ -47,11 +47,13 @@ function redirect(){
                                             <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Matches</a>
                                         </li>
                                     </Link>
+                                    {user &&
                                     <Link href="./TicketForm">
                                         <li className="">
                                             <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Ticket</a>
                                         </li>
                                     </Link>
+                                        }    
                                     <Link href="./WorldCupHistory">
                                         <li className="">
                                             <a className="inline-block px-4 py-2 font-bold no-underline hover:scale-110 hover:text-gray-500 hover:text-underline" href="#">Last World Cup</a>

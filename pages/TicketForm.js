@@ -183,7 +183,7 @@ useEffect(() => {
                 >
                   {matches.map((match) => {
                     if (match.number_of_tickets <= 0) {
-                      { return <option value={JSON.stringify(match)} disabled >{match.title}: sold out </option> }
+                      { return <option value={JSON.stringify(match)}  >{match.title}: sold out </option> }
                     }
                     else
                       return <option value={JSON.stringify(match)}  >
@@ -202,7 +202,7 @@ useEffect(() => {
                 </label>
                 {ticketsCat.map((data, indx) => { //0
                   if (Classes[indx] < 1) {
-                    <><input name="class" type="radio" value={data} disabled /> Class {data} Sold Out <br /></>
+                    <><input name="class" type="radio" value={data}  /> Class {data} Sold Out <br /></>
                   } else {
                     return <>
                       <input name="class" type="radio" value={data} /> Class {data} {Classes[indx]} <br />

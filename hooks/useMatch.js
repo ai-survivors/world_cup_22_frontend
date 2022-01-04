@@ -15,12 +15,9 @@ export default function useMatch() {
 
     async function fetchMatches(url) {
 
-        if (!tokens) {
-            return;
-        }
-
+       
         try {
-            const response = await axios.get(url, config());
+            const response = await axios.get(url);
 
             return response.data;
 
@@ -83,7 +80,7 @@ export default function useMatch() {
         // STRETCH: refresh the access token when it has expired
         logout();
     }
-
+console.log("s",data)
     return {
         matchesResource: data,
         error,
