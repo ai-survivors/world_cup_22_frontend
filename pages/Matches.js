@@ -45,7 +45,15 @@ export default function Matches() {
       <div >
         <div>
           <section class=" w-screen h-screen bg-cover py-48 bg-white flex flex-col justify-center bg-[url('https://oddsmatrix.com/wp-content/uploads/2021/07/Player-3-1.png')]" >
-            {/* <div class="grid grid-cols-2 gap-10 max-w-6xl mx-auto">
+          <section>
+<div className="container text-center break-normal md:pt-32">
+<p className="float-left pt-10 pl-10 font-bold text-black md:text-6xl">
+World Cup Qatar 2022™
+</p>
+<p className="pt-3 text-xl text-white md:text-2xl"></p>
+</div>
+</section>
+      {/* <div class="grid grid-cols-2 gap-10 max-w-6xl mx-auto">
               <div class="-mt-20 flex justify-end">
                 <img class="w-2/3 h-2/3 object-cover rounded-lg overflow-hidden" src="https://images.unsplash.com/photo-1616486788371-62d930495c44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" />
               </div>
