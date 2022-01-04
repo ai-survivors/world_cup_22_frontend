@@ -43,7 +43,11 @@ const ticketsCat=["A", "B" , "C" , "D"]
   console.log("user", user);
 
   
+const fileHandler = async (e) =>{
+  e.preventDefault();
+  console.log(e.target.files[0])
 
+}
 
 
   const handleSubmit = async (e) => {
@@ -205,7 +209,7 @@ World Cup Qatar 2022™
                 })}
               </select>
             </div>
-
+     <input type="file" onChange={fileHandler}/> 
             <button 
               class="block w-full bg-black hover:bg-red-600 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
               type="submit"

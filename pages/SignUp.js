@@ -18,15 +18,12 @@ function SignUp() {
             password2: e.target.confirmPassword.value
         }
        console.log(userObj)
-       createUser(userObj)
-    }
-    function redirect() {
-        setTimeout(() => {
-            router.push('/Login')
+     
+       router.push('/Login')
+       setTimeout(() => {
+        createUser(userObj)
 
-        }, 500)
-        //router.push('/')
-        //router.go(-1)
+    }, 500)
     }
 
     return (
@@ -65,8 +62,8 @@ function SignUp() {
                                         <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Last Name" name='lastname' />
                                     </div>
                                     <div>
-                                        <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide">Email</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500"  refs="email" type="email" placeholder="Enter your email" name='email' required/>
+                                        <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide" >Email</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" required refs="email" type="email" placeholder="Enter your email" name='email' required/>
                                     </div>
                                     <div class="mt-8">
                                         <div class="flex justify-between items-center">
@@ -87,7 +84,7 @@ function SignUp() {
                                     <div class="mt-10">
                                         <button class="bg-indigo-600 text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-800
-                                shadow-lg" onClick={redirect}>
+                                shadow-lg" >
                                             Sign Up
                                         </button>
                                     </div>
