@@ -63,7 +63,7 @@ function SignUp() {
                                     </div>
                                     <div>
                                         <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide" >Username</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" required refs="text" type="email" placeholder="Enter your email" name='username' required/>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" required refs="text" type="text" placeholder="Enter your Username" name='username' required/>
                                     </div>
                                     <div>
                                         <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide" >Email</div>
