@@ -12,7 +12,7 @@ function SignUp() {
     function handleCreateUser(e) {
         e.preventDefault()
         const userObj = {
-            username: e.target.firstname.value + e.target.lastname.value,
+            username: e.target.username.value ,
             email: e.target.email.value,
             password: e.target.password.value,
             password2: e.target.confirmPassword.value
@@ -55,11 +55,15 @@ function SignUp() {
                                 <form method='post' onSubmit={handleCreateUser}>
                                     <div>
                                         <div class="text-sm font-bold text-gray-700 tracking-wide">First Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="First Name" name='firstname' />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="First Name" name='firstname' required />
                                     </div>
                                     <div>
                                         <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide">Last Name</div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Last Name" name='lastname' />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="text" placeholder="Last Name" name='lastname'  required/>
+                                    </div>
+                                    <div>
+                                        <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide" >Username</div>
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" required refs="text" type="email" placeholder="Enter your email" name='username' required/>
                                     </div>
                                     <div>
                                         <div class="pt-3 text-sm font-bold text-gray-700 tracking-wide" >Email</div>
@@ -71,7 +75,7 @@ function SignUp() {
                                                 Password
                                             </div>
                                         </div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name='password' />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Enter your password" name='password' required />
                                     </div>
                                     <div class="mt-8">
                                         <div class="flex justify-between items-center">
@@ -79,7 +83,7 @@ function SignUp() {
                                                 Confirm Password
                                             </div>
                                         </div>
-                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm your password" name='confirmPassword' />
+                                        <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" type="password" placeholder="Confirm your password" name='confirmPassword' required />
                                     </div>
                                     <div class="mt-10">
                                         <button class="bg-indigo-600 text-gray-100 p-4 w-full rounded-full tracking-wide
