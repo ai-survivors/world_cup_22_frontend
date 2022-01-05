@@ -187,7 +187,10 @@ useEffect(() => {
                   id="match"
                   class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
                   onChange={handleTheClasses}
-                  
+
+                  value={match}
+                  required
+
                 >
                   {matches.map((match) => {
                     if (match.number_of_tickets <= 0) {
@@ -195,8 +198,9 @@ useEffect(() => {
                     }
                     else
                       return <option value={JSON.stringify(match)}  >
-                        Match:  {match.title}   --
-                        Match Date:  {match.match_date}
+                            {match.match_date} &emsp;&emsp;&emsp;
+                         {match.title} 
+                      
 
                       </option>;
 
@@ -205,7 +209,7 @@ useEffect(() => {
               </div>
 
               <div>
-                <label class="block mb-1 font-bold text-gray-500">
+                <label  required class="block mb-1 font-bold text-gray-500">
                   Ticket class:
                 </label>
                 {ticketsCat.map((data, indx) => { //0
