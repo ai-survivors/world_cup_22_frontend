@@ -11,6 +11,7 @@ import RadioButton from '../components/RadioButton'
 
 
 const TicketForm = () => {
+  const router = useRouter()
   const { user, login, logout } = useAuth()
   const { matchesResource, loading } = useMatch();
   const { ticketResources, ticketLoading, createTicket } = useTickets();
@@ -49,6 +50,9 @@ useEffect(() => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    console.log(e.target.image.files[0])
+    
     const obj = {
       owner: user.id,
       description: "",
@@ -56,9 +60,13 @@ useEffect(() => {
       match: match.id,
       ticket_class: e.target.class.value,
     };
-    console.log("here", obj);
     createTicket(obj);
-    setMatches(matchesResource)
+
+     setTimeout(()=>{
+       router.push('/Profile')
+     },500)
+    
+
     
 
   };
@@ -179,8 +187,10 @@ useEffect(() => {
                   id="match"
                   class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
                   onChange={handleTheClasses}
+
                   value={match}
                   required
+
                 >
                   {matches.map((match) => {
                     if (match.number_of_tickets <= 0) {
@@ -213,6 +223,9 @@ useEffect(() => {
 
                 })}
               </div>
+               <div>
+               <input name="image" type="file"  />
+               </div>
 
               <button
                 class="block w-full bg-black hover:bg-red-600 p-4 rounded text-gray-100  hover:text-gray-300transition duration-300 font-large "
