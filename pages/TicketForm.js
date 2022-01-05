@@ -18,6 +18,7 @@ const TicketForm = () => {
   const ticketsCat = ["A", "B", "C", "D"]
   const [Classes, setClasses] = useState([])
   const [match, setMatch] = useState({})
+  const [imgURL,setImgURL] = useState({'image':undefined})
 
 
   const [matches, setMatches] = useState([]);
@@ -59,6 +60,7 @@ useEffect(() => {
       price: 65,
       match: match.id,
       ticket_class: e.target.class.value,
+      
     };
     createTicket(obj);
 
@@ -68,6 +70,25 @@ useEffect(() => {
 
   };
 
+
+
+const uploadFile = async e => {
+    console.log("Uploading....")
+    const files = e.target.files;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'm2hgzmec');
+
+    const res = await fetch('https://api.cloudinary.com/v1_1/doaoxkcbc/image/upload', {
+        method: 'POST',
+        body: data
+    });
+
+    const file = await res.json();
+    setImgURL({ image: file.secure_url })
+}
+
+console.log(imgURL);
   return (
 
     <>
@@ -220,8 +241,9 @@ useEffect(() => {
                <label  required class="block mb-1 font-bold text-gray-500">
                   Please Upload Your Vaccination Certificate
                 </label>
-               <input required name="image" type="file"  />
+               <input required id="file" name="image" type="file" onChange={uploadFile}  />
                <div role="alert">
+             
   <div class="bg-red-500 text-white font-bold rounded-t px-4 mt-3 w-30 py-2">
     Warning
   </div>
