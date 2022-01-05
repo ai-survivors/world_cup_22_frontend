@@ -57,6 +57,7 @@ useEffect(() => {
     const obj = {
       owner: user.id,
       description: "",
+      certificate:imgURL.image,
       price: 65,
       match: match.id,
       ticket_class: e.target.class.value,
@@ -242,6 +243,7 @@ console.log(imgURL);
                   Please Upload Your Vaccination Certificate
                 </label>
                <input required id="file" name="image" type="file" onChange={uploadFile}  />
+                {/* <img className="w-200" src={imgURL.image} /> */}
                <div role="alert">
              
   <div class="bg-red-500 text-white font-bold rounded-t px-4 mt-3 w-30 py-2">
