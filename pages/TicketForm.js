@@ -62,16 +62,11 @@ useEffect(() => {
     };
     createTicket(obj);
 
-     setTimeout(()=>{
-       router.push('/Profile')
-     },500)
-    
-
-    
+    //  setTimeout(()=>{
+    //    router.push('/Profile')
+    //  },500)
 
   };
-  
-  
 
   return (
 
@@ -181,14 +176,12 @@ useEffect(() => {
                 </label>
 
 
-
                 <select
                   name="match"
                   id="match"
                   class="w-full border-2 border-gray-200 p-3 rounded outline-none focus:border-purple-500"
                   onChange={handleTheClasses}
-
-                  value={match}
+                
                   required
 
                 >
@@ -224,7 +217,18 @@ useEffect(() => {
                 })}
               </div>
                <div>
-               <input name="image" type="file"  />
+               <label  required class="block mb-1 font-bold text-gray-500">
+                  Please Upload Your Vaccination Certificate
+                </label>
+               <input required name="image" type="file"  />
+               <div role="alert">
+  <div class="bg-red-500 text-white font-bold rounded-t px-4 mt-3 w-30 py-2">
+    Warning
+  </div>
+  <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+    <p>Please Upload A Valid Certificate To Avoid losing Your Ticket Because It Will Be Checked By Admins </p>
+  </div>
+</div>
                </div>
 
               <button
