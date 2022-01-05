@@ -32,14 +32,14 @@ function redirect(){
                                     <img className='hover:scale-110 cursor-grab' src='https://github.com/ai-survivors/world_cup_22_frontend/raw/main/assest/logo.png' width='120' />
                                 </Link>
                             </div>
-                            <div className="block pr-4 lg:hidden">
+                           {/*  <div className="block pr-4 lg:hidden">
                                 <button id="nav-toggle" className="flex items-center p-1 text-white transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105">
                                     <svg className="w-6 h-6 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                         <title>Menu</title>
                                         <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
                                     </svg>
                                 </button>
-                            </div>
+                            </div> */}
                             <div className="z-20 flex-grow hidden w-full p-4 mt-2 text-white bg-white lg:flex lg:items-center lg:w-auto lg:mt-0 lg:bg-transparent lg:p-0" id="nav-content">
                                 <ul className="items-center justify-end flex-1 list-reset lg:flex">
                                     <Link href="./Matches">
