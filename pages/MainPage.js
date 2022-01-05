@@ -1,12 +1,12 @@
-import Axios from "axios" ;  
 const NEWS = process.env.NEXT_PUBLIC_WORLD_NEWS_API ;
 import Header from '../components/Header'
+import axios from 'axios'
 import Footer from '../components/Footer'
 import React, { useState, useEffect } from "react" ;
 const MainPage = () => {
   const [news , setNews] = useState([]);
   useEffect(() => {
-      Axios.get(NEWS).then(res=>{
+      axios.get(NEWS).then(res=>{
           setNews(res.data)
       })
     },[]);  

@@ -51,7 +51,7 @@ const AboutUs = () => {
           <div className="container px-4 mx-auto">
             <div className="flex flex-wrap justify-center mb-16 text-center">
               <div className="w-full px-4 lg:w-6/12">
-                <h2 className="text-4xl font-semibold text-gray-800">Here are our Heroes</h2>
+                <h2 className="mt-12 text-4xl font-semibold text-gray-800">Here are our Heroes</h2>
               </div>
             </div>
             <div className="flex flex-wrap">
@@ -252,13 +252,13 @@ const AboutUs = () => {
                     <div className="flex-auto shadow-2xl lg:p-10">
                       <h4 className="text-2xl font-semibold text-center">
                         Want To Give Us Any Suggestion ?                    </h4>
-                      <p className="mt-1 mb-4 leading-relaxed text-center text-gray-700 text-s">
+                      <p className="mt-1 mb-4 text-base leading-relaxed text-center text-gray-700">
                         Complete this form and we will get back to you .
                       </p>
                       <form method='post' onSubmit={handelFeedback}>
                       <div className="relative w-full mt-8 mb-3">
                         <label
-                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          className="block mb-2 text-base font-bold uppercase text-blueGray-600"
                           htmlFor="full-name"
                         >
                           Full Name
@@ -273,7 +273,7 @@ const AboutUs = () => {
 
                       <div className="relative w-full mb-3">
                         <label
-                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          className="block mb-2 text-base font-bold uppercase text-blueGray-600"
                           htmlFor="email"
                         >
                           Email
@@ -288,7 +288,7 @@ const AboutUs = () => {
 
                       <div className="relative w-full mb-3">
                         <label
-                          className="block mb-2 text-xs font-bold uppercase text-blueGray-600"
+                          className="block mb-2 text-base font-bold uppercase text-blueGray-600"
                           htmlFor="message"
                           
                         >
