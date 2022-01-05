@@ -10,7 +10,7 @@ const MainPage = () => {
           setNews(res.data)
       })
     },[]);  
-
+console.log(NEWS);
   return (
 <>
     <Header/>
