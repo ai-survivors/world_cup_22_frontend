@@ -27,7 +27,7 @@ return (
     <div class="flex-grow">
     <p class="text-gray-600">{Math.floor(Math.random() * 700)} VIEWS</p>
     <a href="#" class="no-underline ">
-      <p class="text-gray-900 pt-2 leading-none"><a href='' class="text-blue-800 pt-5 underline font-serif text-base mb-5">
+      <p class="text-gray-900 pt-2 leading-none"><a href={item.link} class="text-blue-800 pt-5 underline font-serif text-base mb-5">
 See Full Article .....
 </a></p>
 </a>     
