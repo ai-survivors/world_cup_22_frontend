@@ -99,7 +99,7 @@ const AboutUs = () => {
                 <div >
                   <img
                     alt="..."
-                    src="https://github.com/mhmadwrekat/profile_card/raw/main/assest/profile.jpg"
+                    src="./IMG_20211130_145300.jpg"
                     className="mx-auto rounded-full shadow-lg hover:scale-105 w-60 h-60"
                   />
                   <div className="pt-4 text-center">
