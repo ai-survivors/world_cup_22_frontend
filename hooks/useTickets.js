@@ -1,11 +1,13 @@
 import axios from 'axios';
 import useSWR from 'swr';
 export const apiUrl = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/tickets/';
-export const apiUrl1 = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/buyticket/';
+// export const apiUrl1 = process.env.NEXT_PUBLIC_RESOURCE_URL +'api/v1/buyticket/';
 import { useAuth } from '../contexts/auth'
+import { useRouter } from 'next/router';
 
 export default function useTickets() {
 
+    const router = useRouter()
 
     const {tokens , logout } = useAuth()
     const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
@@ -31,7 +33,8 @@ export default function useTickets() {
         try {
          
             await axios.post(apiUrl, info, config());
-            window.open(apiUrl1)
+            // window.open(apiUrl1)
+            router.push("/Profile")
      
             // await axios.get(apiUrl1, info, config());
             mutate(); // mutate causes complete collection to be refetched
